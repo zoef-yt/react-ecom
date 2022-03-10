@@ -5,7 +5,7 @@ const Header = () => {
 	return (
 		<nav className='homepage-navbar'>
 			<div className='navbar-brand'>
-				<a href='#'>
+				<a href='eslint-bruh'>
 					{' '}
 					<h1>Need Games</h1>{' '}
 				</a>
@@ -14,7 +14,7 @@ const Header = () => {
 			<div className='navbar-cta'>
 				<HeartIcon className='wishlist-icon' />
 				<ShoppingCartIcon className='cart-icon' />
-				<a id='login-text' className='btn btn-link'>
+				<a href='eslint-bruh' id='login-text' className='btn btn-link'>
 					Hello, Login
 				</a>
 			</div>

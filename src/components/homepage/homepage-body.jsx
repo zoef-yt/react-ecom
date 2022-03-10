@@ -23,7 +23,7 @@ const HomepageBody = () => {
 				<div class='features-row'>
 					<div class='card card-md'>
 						<div class='card-body card-overlay-holder'>
-							<img class='card-img' src='/assets/images/games/HFW-1.png' loading='lazy' alt='video game image' />
+							<img class='card-img' src='/assets/images/games/HFW-1.png' loading='lazy' alt='video game image1' />
 							<div class='card-overlay'>
 								<p>Releasing:TBH</p>
 								<p>Available: PS5 & PS4</p>
@@ -37,7 +37,7 @@ const HomepageBody = () => {
 
 					<div class='card card-md'>
 						<div class='card-body card-overlay-holder'>
-							<img class='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image' />
+							<img class='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image2' />
 							<div class='card-overlay'>
 								<p>30% off</p>
 								<button class='btn btn-primary'>Buy Now</button>
@@ -52,7 +52,7 @@ const HomepageBody = () => {
 
 					<div class='card card-md'>
 						<div class='card-body card-overlay-holder'>
-							<img class='card-img' src='/assets/images/games/MIlesMorales-1.png' loading='lazy' alt='video game image' />
+							<img class='card-img' src='/assets/images/games/MIlesMorales-1.png' loading='lazy' alt='video game image2' />
 							<div class='card-overlay'>
 								<p>30% off</p>
 								<button class='btn btn-primary'>Buy Now</button>
@@ -67,7 +67,7 @@ const HomepageBody = () => {
 
 					<div class='card card-md'>
 						<div class='card-body card-overlay-holder'>
-							<img class='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image' />
+							<img class='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image3' />
 							<div class='card-overlay'>
 								<p>30% off</p>
 								<button class='btn btn-primary'>Buy Now</button>
@@ -82,7 +82,7 @@ const HomepageBody = () => {
 
 					<div class='card card-md'>
 						<div class='card-body card-overlay-holder'>
-							<img class='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image' />
+							<img class='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image4' />
 							<div class='card-overlay'>
 								<p>30% off</p>
 								<button class='btn btn-primary'>Buy Now</button>
@@ -97,7 +97,7 @@ const HomepageBody = () => {
 
 					<div class='card card-md'>
 						<div class='card-body card-overlay-holder'>
-							<img class='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image' />
+							<img class='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image5' />
 							<div class='card-overlay'>
 								<p>30% off</p>
 								<button class='btn btn-primary'>Buy Now</button>
@@ -112,7 +112,7 @@ const HomepageBody = () => {
 
 					<div class='card card-md'>
 						<div class='card-body card-overlay-holder'>
-							<img class='card-img' src='/assets/images/games/MIlesMorales-1.png' loading='lazy' alt='video game image' />
+							<img class='card-img' src='/assets/images/games/MIlesMorales-1.png' loading='lazy' alt='video game image6' />
 							<div class='card-overlay'>
 								<p>30% off</p>
 								<button class='btn btn-primary'>Buy Now</button>
@@ -127,7 +127,7 @@ const HomepageBody = () => {
 
 					<div class='card card-md'>
 						<div class='card-body card-overlay-holder'>
-							<img class='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image' />
+							<img class='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image7' />
 							<div class='card-overlay'>
 								<p>30% off</p>
 								<button class='btn btn-primary'>Buy Now</button>
@@ -142,7 +142,7 @@ const HomepageBody = () => {
 
 					<div class='card card-md'>
 						<div class='card-body card-overlay-holder'>
-							<img class='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image' />
+							<img class='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image8' />
 							<div class='card-overlay'>
 								<p>30% off</p>
 								<button class='btn btn-primary'>Buy Now</button>
@@ -157,7 +157,7 @@ const HomepageBody = () => {
 
 					<div class='card card-md'>
 						<div class='card-body card-overlay-holder'>
-							<img class='card-img' src='/assets/images/games/LOUS2-1.png' loading='lazy' alt='video game image' />
+							<img class='card-img' src='/assets/images/games/LOUS2-1.png' loading='lazy' alt='video game image9' />
 							<div class='card-overlay'>
 								<p>30% off</p>
 								<button class='btn btn-primary'>Buy Now</button>
@@ -170,7 +170,7 @@ const HomepageBody = () => {
 					</div>
 					<div class='card card-md'>
 						<div class='card-body card-overlay-holder'>
-							<img class='card-img' src='/assets/images/games/LOUS2-1.png' loading='lazy' alt='video game image' />
+							<img class='card-img' src='/assets/images/games/LOUS2-1.png' loading='lazy' alt='video game image10' />
 							<div class='card-overlay'>
 								<p>30% off</p>
 								<button class='btn btn-primary'>Buy Now</button>
@@ -185,7 +185,7 @@ const HomepageBody = () => {
 
 					<div class='card card-md'>
 						<div class='card-body card-overlay-holder'>
-							<img class='card-img' src='/assets/images/games/LOUS2-1.png' loading='lazy' alt='video game image' />
+							<img class='card-img' src='/assets/images/games/LOUS2-1.png' loading='lazy' alt='video game image11' />
 							<div class='card-overlay'>
 								<p>30% off</p>
 								<button class='btn btn-primary'>Buy Now</button>
@@ -200,7 +200,7 @@ const HomepageBody = () => {
 
 					<div class='card card-md'>
 						<div class='card-body card-overlay-holder'>
-							<img class='card-img' src='/assets/images/games/MIlesMorales-1.png' loading='lazy' alt='video game image' />
+							<img class='card-img' src='/assets/images/games/MIlesMorales-1.png' loading='lazy' alt='video game image12' />
 							<div class='card-overlay'>
 								<p>30% off</p>
 								<button class='btn btn-primary'>Buy Now</button>
@@ -215,7 +215,7 @@ const HomepageBody = () => {
 
 					<div class='card card-md'>
 						<div class='card-body card-overlay-holder'>
-							<img class='card-img' src='/assets/images/games/LOUS2-1.png' loading='lazy' alt='video game image' />
+							<img class='card-img' src='/assets/images/games/LOUS2-1.png' loading='lazy' alt='video game image13' />
 							<div class='card-overlay'>
 								<p>30% off</p>
 								<button class='btn btn-primary'>Buy Now</button>
