@@ -37,7 +37,7 @@
 .features-row {
 	max-width: 100%;
 	display: grid;
-	grid-template-columns: repeat(7, 1fr);
+	grid-template-columns: repeat(10, 1fr);
 	grid-template-rows: 1fr 1fr;
 	gap: 2rem;
 	overflow: auto;
