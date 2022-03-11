@@ -48,7 +48,7 @@ const FeaturedCard = (props) => {
 				<img className='card-img' src={props.image} loading='lazy' alt={props.name} />
 
 				<div className='card-overlay'>
-					{<p>{props.inStock ? props.offer : 'Releasing:TBH'}</p>}
+					{<p>{props.inStock && props.hasOffer ? props.offer : 'Releasing:TBH'}</p>}
 					<p>{props.name}</p>
 					{props.inStock && <button className='btn btn-primary'>Buy Now</button>}
 					<p>Available: {props.type}</p>
