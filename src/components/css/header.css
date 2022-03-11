@@ -11,6 +11,9 @@
 	font-size: 1.5rem;
 	font-weight: bold;
 }
+.navbar-brand > * {
+	color: var(--colour-text-white);
+}
 
 .text-field {
 	margin: 0;

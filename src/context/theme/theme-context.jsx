@@ -22,7 +22,6 @@ const ThemeProvider = ({ children }) => {
 		} else {
 			localStorage.setItem('theme', 'light');
 			document.documentElement.setAttribute('data-theme', 'light');
-			setTheme('light');
 		}
 	}, []);
 
