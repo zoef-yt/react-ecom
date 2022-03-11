@@ -1,9 +1,8 @@
 import React from 'react';
-// import { Homepage } from './components/homepage/homepage';
-import { ProductsPage } from './components/products-page/products-page';
+import { Homepage } from './components/homepage/homepage';
+
 function App() {
-	// return <Homepage />;
-	return <ProductsPage />;
+	return <Homepage />;
 }
 
 export default App;
