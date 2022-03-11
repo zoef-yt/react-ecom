@@ -5,7 +5,7 @@ import { HomepageBody } from './homepage-body';
 import { Footer } from '../footer/footer';
 const Homepage = () => {
 	return (
-		<div className={'homepage'}>
+		<div className='homepage'>
 			<Header />
 			<HomepageBody />
 			<Footer />
