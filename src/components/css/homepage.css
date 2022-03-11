@@ -1,0 +1,76 @@
+.homepage {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 8rem 1fr 5rem;
+	grid-template-areas:
+		' top-navbar '
+		' main-content '
+		' footer  ';
+	margin: auto;
+	height: 100vh;
+	width: 100%;
+	max-width: 170rem;
+}
+
+.homepage-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4rem;
+	align-items: center;
+	grid-area: main-content;
+}
+
+.homepage-footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-area: footer;
+}
+
+.feature-section {
+	overflow: auto;
+	max-width: 85vw;
+	width: 100%;
+}
+
+.features-row {
+	max-width: 100%;
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: 1fr 1fr;
+	gap: 2rem;
+	overflow: auto;
+}
+
+.features-row > * {
+	margin: 1rem;
+	cursor: pointer;
+}
+
+.features-row > *:hover {
+	transform: translateY(-0.1rem);
+}
+
+.features-row .card {
+	min-width: 30rem;
+}
+
+.card-overlay {
+	transition: all 0.2s ease-in-out;
+}
+
+.card-overlay-holder:hover .card-img {
+	filter: blur(3px);
+}
+
+.card-overlay-holder:hover .card-overlay {
+	opacity: 1;
+	background-color: var(--colour-dark-with-opacity-two);
+}
+
+@media only screen and (min-width: 1999px) {
+	.feature-section {
+		max-width: 170rem;
+	}
+}

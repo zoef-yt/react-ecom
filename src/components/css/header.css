@@ -1,0 +1,40 @@
+.homepage-navbar {
+	display: flex;
+	padding: 2rem;
+	justify-content: space-between;
+	align-items: center;
+	grid-area: top-navbar;
+}
+
+.navbar-brand {
+	min-width: 20%;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.text-field {
+	margin: 0;
+	max-width: 20vw;
+	width: 100%;
+	transition: all 0.3s ease-in-out;
+}
+
+.navbar-cta {
+	min-width: 20%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	transition: all 0.2s ease-in-out;
+	padding: 0 1rem;
+}
+
+.navbar-cta > * {
+	margin: 0 1rem;
+	width: fit-content;
+}
+
+.navbar-cta > *:hover:last-child {
+	transform: none;
+	cursor: pointer;
+	color: var(--colour-primary);
+}
