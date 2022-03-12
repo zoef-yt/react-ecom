@@ -9,13 +9,18 @@
 		'main-content'
 		'footer';
 	margin: auto;
-	height: 100vh;
+	height: 100%;
 	width: 100%;
 	max-width: 170rem;
 }
 
 .filter-section {
 	grid-area: filter-bar;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0rem;
+	z-index: 1;
+	background-color: var(--colour-black-one);
 }
 
 .filter-items {
@@ -57,16 +62,12 @@
 	display: block;
 }
 
-.dropdown-content > input {
-	display: inline-block !important;
-}
-
 .dropdown:hover .dropdown-content {
 	display: block;
 }
 
 .slider input[type='range'] {
-	-webkit-appearance: none !important;
+	-webkit-appearance: none;
 	background: var(--colour-accent-third);
 	width: 100%;
 	height: 3px;
@@ -75,7 +76,7 @@
 }
 
 .slider input[type='range']::-webkit-slider-thumb {
-	-webkit-appearance: none !important;
+	-webkit-appearance: none;
 	width: 1.5rem;
 	height: 1.5rem;
 	background-color: var(--colour-text-white-two);
