@@ -23,7 +23,7 @@ const FilterBar = () => {
 				<div className='filter-items' onScroll={scrollHandler}>
 					<h3>Filter By:</h3>
 					<FilterDropDownbutton
-						key={'Sort By Price'}
+						key='Sort-By-Price'
 						scroll={scroll}
 						buttonName='Sort By Price'
 						children={
@@ -42,7 +42,7 @@ const FilterBar = () => {
 					/>
 
 					<FilterDropDownbutton
-						key={'Price Range'}
+						key='Price-Range'
 						scroll={scroll}
 						buttonName='Price Range'
 						children={
@@ -59,13 +59,13 @@ const FilterBar = () => {
 					/>
 
 					<FilterDropDownbutton
-						key={'Type of Product'}
+						key='Type-of-Product'
 						scroll={scroll}
 						buttonName='Type of Product'
 						children={
 							<>
-								{types.map((type) => (
-									<label>
+								{types.map((type, index) => (
+									<label key={index}>
 										<input type='radio' name='platform' />
 										{type}
 									</label>
@@ -75,7 +75,7 @@ const FilterBar = () => {
 					/>
 
 					<FilterDropDownbutton
-						key={'Ratings'}
+						key='Ratings'
 						buttonName='Ratings'
 						scroll={scroll}
 						children={
@@ -97,7 +97,7 @@ const FilterBar = () => {
 					/>
 
 					<FilterDropDownbutton
-						key={'Genre'}
+						key='Genre'
 						buttonName='Genre'
 						scroll={scroll}
 						children={
