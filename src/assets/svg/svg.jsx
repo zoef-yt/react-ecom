@@ -22,6 +22,18 @@ function HeartIcon(props) {
 	);
 }
 
+function SecondHeartIcon(props) {
+	return (
+		<svg width='25' height='25' viewBox='0 0 256 256' {...props}>
+			<path
+				fill='currentColor'
+				d='m133.6 211.9l81.1-81c19.9-20 22.8-52.7 4-73.6a52 52 0 0 0-75.5-2.1L128 70.5l-13.2-13.2c-19.9-19.9-52.6-22.8-73.6-4a52 52 0 0 0-2 75.5l83.1 83.1a8 8 0 0 0 11.3 0Z'
+				opacity='.2'
+			></path>
+			<path
+				fill='currentColor'
+				d='M128 222.2a15.6 15.6 0 0 1-11.3-4.7l-83.2-83.1a60 60 0 0 1 2.4-87a57.6 57.6 0 0 1 43-14.6a64.5 64.5 0 0 1 41.6 18.9l7.5 7.4l9.5-9.5a60 60 0 0 1 87.1 2.3c10.5 11.6 15.6 26.9 14.6 43.1a64.3 64.3 0 0 1-18.9 41.5l-81 81a15.6 15.6 0 0 1-11.3 4.7ZM75 48.7a42.3 42.3 0 0 0-28.4 10.5a44 44 0 0 0-1.7 63.9l88.7 88.8l-5.6-5.7l81-81c17.4-17.4 19.1-45.5 3.7-62.6a43.9 43.9 0 0 0-63.8-1.7l-15.3 15.2a8 8 0 0 1-11.3 0L109.2 63A48.5 48.5 0 0 0 75 48.7Z'
+
 function SunIcon(props) {
 	return (
 		<svg width='1em' height='1em' viewBox='0 0 16 16' {...props}>
@@ -43,4 +55,4 @@ function HalfMoonIcon(props) {
 		</svg>
 	);
 }
-export { HeartIcon, ShoppingCartIcon, SunIcon, HalfMoonIcon };
+export { HeartIcon, ShoppingCartIcon, SunIcon, HalfMoonIcon,SecondHeartIcon };
