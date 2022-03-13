@@ -1,4 +1,5 @@
 import React from 'react';
+import { featuredData } from '../../data/featured-data';
 
 const HomepageBody = () => {
 	return (
@@ -21,212 +22,17 @@ const HomepageBody = () => {
 
 			<section id='feature-section' className='feature-section'>
 				<div className='features-row'>
-					<div className='card card-md'>
-						<div className='card-body card-overlay-holder'>
-							<img className='card-img' src='/assets/images/games/HFW-1.png' loading='lazy' alt='video game image1' />
-							<div className='card-overlay'>
-								<p>Releasing:TBH</p>
-								<p>Available: PS5 & PS4</p>
-							</div>
-						</div>
-
-						<div className='card-badge'>
-							<p>Pre Order Now!</p>
-						</div>
-					</div>
-
-					<div className='card card-md'>
-						<div className='card-body card-overlay-holder'>
-							<img className='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image2' />
-							<div className='card-overlay'>
-								<p>30% off</p>
-								<button className='btn btn-primary'>Buy Now</button>
-								<p>Available: PS5 & PS4</p>
-							</div>
-						</div>
-						<div className='card-badge'>
-							{' '}
-							<p>Pre Order Now!</p>{' '}
-						</div>
-					</div>
-
-					<div className='card card-md'>
-						<div className='card-body card-overlay-holder'>
-							<img className='card-img' src='/assets/images/games/MIlesMorales-1.png' loading='lazy' alt='video game image2' />
-							<div className='card-overlay'>
-								<p>30% off</p>
-								<button className='btn btn-primary'>Buy Now</button>
-								<p>Available: PS5 & PS4</p>
-							</div>
-						</div>
-						<div className='card-badge'>
-							{' '}
-							<p>Pre Order Now!</p>{' '}
-						</div>
-					</div>
-
-					<div className='card card-md'>
-						<div className='card-body card-overlay-holder'>
-							<img className='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image3' />
-							<div className='card-overlay'>
-								<p>30% off</p>
-								<button className='btn btn-primary'>Buy Now</button>
-								<p>Available: PS5 & PS4</p>
-							</div>
-						</div>
-						<div className='card-badge'>
-							{' '}
-							<p>Pre Order Now!</p>{' '}
-						</div>
-					</div>
-
-					<div className='card card-md'>
-						<div className='card-body card-overlay-holder'>
-							<img className='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image4' />
-							<div className='card-overlay'>
-								<p>30% off</p>
-								<button className='btn btn-primary'>Buy Now</button>
-								<p>Available: PS5 & PS4</p>
-							</div>
-						</div>
-						<div className='card-badge'>
-							{' '}
-							<p>Pre Order Now!</p>{' '}
-						</div>
-					</div>
-
-					<div className='card card-md'>
-						<div className='card-body card-overlay-holder'>
-							<img className='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image5' />
-							<div className='card-overlay'>
-								<p>30% off</p>
-								<button className='btn btn-primary'>Buy Now</button>
-								<p>Available: PS5 & PS4</p>
-							</div>
-						</div>
-						<div className='card-badge'>
-							{' '}
-							<p>Pre Order Now!</p>{' '}
-						</div>
-					</div>
-
-					<div className='card card-md'>
-						<div className='card-body card-overlay-holder'>
-							<img className='card-img' src='/assets/images/games/MIlesMorales-1.png' loading='lazy' alt='video game image6' />
-							<div className='card-overlay'>
-								<p>30% off</p>
-								<button className='btn btn-primary'>Buy Now</button>
-								<p>Available: PS5 & PS4</p>
-							</div>
-						</div>
-						<div className='card-badge'>
-							{' '}
-							<p>Pre Order Now!</p>{' '}
-						</div>
-					</div>
-
-					<div className='card card-md'>
-						<div className='card-body card-overlay-holder'>
-							<img className='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image7' />
-							<div className='card-overlay'>
-								<p>30% off</p>
-								<button className='btn btn-primary'>Buy Now</button>
-								<p>Available: PS5 & PS4</p>
-							</div>
-						</div>
-						<div className='card-badge'>
-							{' '}
-							<p>Pre Order Now!</p>{' '}
-						</div>
-					</div>
-
-					<div className='card card-md'>
-						<div className='card-body card-overlay-holder'>
-							<img className='card-img' src='/assets/images/games/Uncharted-1.png' loading='lazy' alt='video game image8' />
-							<div className='card-overlay'>
-								<p>30% off</p>
-								<button className='btn btn-primary'>Buy Now</button>
-								<p>Available: PS5 & PS4</p>
-							</div>
-						</div>
-						<div className='card-badge'>
-							{' '}
-							<p>Pre Order Now!</p>{' '}
-						</div>
-					</div>
-
-					<div className='card card-md'>
-						<div className='card-body card-overlay-holder'>
-							<img className='card-img' src='/assets/images/games/LOUS2-1.png' loading='lazy' alt='video game image9' />
-							<div className='card-overlay'>
-								<p>30% off</p>
-								<button className='btn btn-primary'>Buy Now</button>
-								<p>Available: PS5 & PS4</p>
-							</div>
-						</div>
-						<div className='card-badge'>
-							<p>Pre Order Now!</p>
-						</div>
-					</div>
-					<div className='card card-md'>
-						<div className='card-body card-overlay-holder'>
-							<img className='card-img' src='/assets/images/games/LOUS2-1.png' loading='lazy' alt='video game image10' />
-							<div className='card-overlay'>
-								<p>30% off</p>
-								<button className='btn btn-primary'>Buy Now</button>
-								<p>Available: PS5 & PS4</p>
-							</div>
-						</div>
-						<div className='card-badge'>
-							{' '}
-							<p>Pre Order Now!</p>{' '}
-						</div>
-					</div>
-
-					<div className='card card-md'>
-						<div className='card-body card-overlay-holder'>
-							<img className='card-img' src='/assets/images/games/LOUS2-1.png' loading='lazy' alt='video game image11' />
-							<div className='card-overlay'>
-								<p>30% off</p>
-								<button className='btn btn-primary'>Buy Now</button>
-								<p>Available: PS5 & PS4</p>
-							</div>
-						</div>
-						<div className='card-badge'>
-							{' '}
-							<p>Pre Order Now!</p>{' '}
-						</div>
-					</div>
-
-					<div className='card card-md'>
-						<div className='card-body card-overlay-holder'>
-							<img className='card-img' src='/assets/images/games/MIlesMorales-1.png' loading='lazy' alt='video game image12' />
-							<div className='card-overlay'>
-								<p>30% off</p>
-								<button className='btn btn-primary'>Buy Now</button>
-								<p>Available: PS5 & PS4</p>
-							</div>
-						</div>
-						<div className='card-badge'>
-							{' '}
-							<p>Pre Order Now!</p>{' '}
-						</div>
-					</div>
-
-					<div className='card card-md'>
-						<div className='card-body card-overlay-holder'>
-							<img className='card-img' src='/assets/images/games/LOUS2-1.png' loading='lazy' alt='video game image13' />
-							<div className='card-overlay'>
-								<p>30% off</p>
-								<button className='btn btn-primary'>Buy Now</button>
-								<p>Available: PS5 & PS4</p>
-							</div>
-						</div>
-						<div className='card-badge'>
-							{' '}
-							<p>Pre Order Now!</p>{' '}
-						</div>
-					</div>
+					{featuredData.map((item) => (
+						<FeaturedCard
+							key={item.id}
+							image={item.image}
+							inStock={item.inStock}
+							name={item.name}
+							offer={item.offer}
+							hasOffer={item.hasOffer}
+							type={item.type}
+						/>
+					))}
 				</div>
 			</section>
 		</main>
@@ -234,3 +40,34 @@ const HomepageBody = () => {
 };
 
 export { HomepageBody };
+
+const FeaturedCard = (props) => {
+	return (
+		<div className='card card-md'>
+			<div className='card-body card-overlay-holder'>
+				<img className='card-img' src={props.image} loading='lazy' alt={props.name} />
+
+				<div className='card-overlay'>
+					{<p>{props.inStock && props.hasOffer ? props.offer : 'Releasing:TBH'}</p>}
+					<p>{props.name}</p>
+					{props.inStock && <button className='btn btn-primary'>Buy Now</button>}
+					<p>Available: {props.type}</p>
+				</div>
+			</div>
+
+			{props.inStock ? (
+				props.hasOffer && (
+					<div className='card-badge'>
+						
+						<p>{props.offer}</p>
+					</div>
+				)
+			) : (
+				<div className='card-badge'>
+					
+					<p>Out of Stock</p>
+				</div>
+			)}
+		</div>
+	);
+};
