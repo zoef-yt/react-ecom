@@ -58,14 +58,14 @@ const FeaturedCard = (props) => {
 			{props.inStock ? (
 				props.hasOffer && (
 					<div className='card-badge'>
-						{' '}
-						<p>{props.offer}</p>{' '}
+						
+						<p>{props.offer}</p>
 					</div>
 				)
 			) : (
 				<div className='card-badge'>
-					{' '}
-					<p>Out of Stock</p>{' '}
+					
+					<p>Out of Stock</p>
 				</div>
 			)}
 		</div>
