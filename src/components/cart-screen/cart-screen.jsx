@@ -2,7 +2,6 @@ import React from 'react';
 import '../css/cart-screen.css';
 import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
-import { featuredData } from '../../data/featured-data';
 
 const MyCartScreen = () => {
 	return (
@@ -15,7 +14,7 @@ const MyCartScreen = () => {
 						{[...Array(5)].map((item, index) => (
 							<div key={index} className='card card-xl'>
 								<div className='flex-row'>
-									<img className='cartpage-product-img img' src='../../assets/images/games/HFW-1.png' />
+									<img className='cartpage-product-img img' src='../../assets/images/games/HFW-1.png' alt='something' />
 									<div className='flex-column space-around product-cart-detail'>
 										<h5>Horizon Forbidden West</h5>
 										<p>Price: $54</p>
