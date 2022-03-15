@@ -1,9 +1,14 @@
 import React from 'react';
-// import { Homepage } from './components/homepage/homepage';
-import { ProductsPage } from './components/products-page/products-page';
+import { Routes, Route } from 'react-router-dom';
+
+import { ProductsPage, Homepage } from './components/allComponent';
 function App() {
-	// return <Homepage />;
-	return <ProductsPage />;
+	return (
+		<Routes>
+			<Route path='/' element={<Homepage />} />
+			<Route path='/products' element={<ProductsPage />} />
+		</Routes>
+	);
 }
 
 export default App;
