@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { featuredData } from '../../data/featured-data';
 
 const HomepageBody = () => {
@@ -15,9 +16,9 @@ const HomepageBody = () => {
 					</div>
 				</div>
 			</section>
-			<a className='btn btn-primary flex-column text-align-center' href='./screens/product-listing-page/product-listing-page.html'>
+			<Link className='btn btn-primary flex-column text-align-center' to='/products'>
 				<h3> Find More Products-{'>'} </h3>
-			</a>
+			</Link>
 			<h2>Featured Items</h2>
 
 			<section id='feature-section' className='feature-section'>
@@ -58,13 +59,11 @@ const FeaturedCard = (props) => {
 			{props.inStock ? (
 				props.hasOffer && (
 					<div className='card-badge'>
-						
 						<p>{props.offer}</p>
 					</div>
 				)
 			) : (
 				<div className='card-badge'>
-					
 					<p>Out of Stock</p>
 				</div>
 			)}

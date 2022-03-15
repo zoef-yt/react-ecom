@@ -4,7 +4,7 @@ import { genres, types } from '../../../data/products-data';
 const FilterDropDownbutton = (props) => {
 	return (
 		<div className='dropdown'>
-			<button className='btn btn-primary dropdown-btn'>{props.buttonName}</button>
+			<button className='btn btn-products btn-primary dropdown-btn'>{props.buttonName}</button>
 			<div style={{ transform: `translateX(-${props.scroll}px)` }} className='dropdown-content'>
 				{props.children}
 			</div>
