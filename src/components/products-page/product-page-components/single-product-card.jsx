@@ -19,8 +19,8 @@ const SingleProductCard = (props) => {
 				{props.inStock ? (
 					<>
 						<p>${props.price}</p>
-						<button className='btn btn-primary'>Buy Now!</button>
-						<button className='btn btn-secondary'>Add to Cart</button>
+						<button className='btn btn-products btn-primary'>Buy Now!</button>
+						<button className='btn btn-products btn-secondary'>Add to Cart</button>
 					</>
 				) : (
 					<p>Out of Stock</p>
