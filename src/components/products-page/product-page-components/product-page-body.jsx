@@ -1,27 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useProductsData } from '../../../context/data/data-context';
 import { SingleProductCard } from './single-product-card';
 
 const ProductsPageBody = () => {
-	const [products, setProducts] = useState({ loading: true, data: [] });
-	useEffect(() => {
-		getData();
-	}, []);
-
-	const getData = async () => {
-		try {
-			setProducts((prev) => ({ ...prev, loading: true }));
-			const response = await axios.get('/api/products');
-			setProducts((prev) => ({ ...prev, data: [...response.data.products], loading: false }));
-		} catch (err) {
-			setProducts((prev) => ({
-				...prev,
-				data: [{ name: 'There is something wrong with the server, Sorry for the inconvenience', offerMessage: err.message }],
-				loading: false,
-			}));
-		}
-	};
-
+	// Getting data from context
+	const { products } = useProductsData();
 	return (
 		<main className='product-main'>
 			{products.loading ? (
