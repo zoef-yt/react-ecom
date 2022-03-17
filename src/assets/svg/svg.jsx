@@ -24,7 +24,7 @@ function HeartIcon(props) {
 
 function SecondHeartIcon(props) {
 	return (
-		<svg width='25' height='25' viewBox='0 0 256 256' {...props}>
+		<svg width='30' height='30' viewBox='0 0 256 256' {...props}>
 			<path
 				fill='currentColor'
 				d='m133.6 211.9l81.1-81c19.9-20 22.8-52.7 4-73.6a52 52 0 0 0-75.5-2.1L128 70.5l-13.2-13.2c-19.9-19.9-52.6-22.8-73.6-4a52 52 0 0 0-2 75.5l83.1 83.1a8 8 0 0 0 11.3 0Z'
