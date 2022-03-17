@@ -27,7 +27,7 @@
 	width: 60vw;
 	margin: 0 auto;
 	display: grid;
-	grid-template-columns: calc(11.1rem + 2vw) repeat(5, minmax(calc(15.1rem + 2vw), max-content));
+	grid-template-columns: calc(11.1rem + 2vw) repeat(4, minmax(calc(15.1rem + 2vw), max-content));
 	grid-template-rows: 1fr;
 	overflow-x: auto;
 	align-items: center;

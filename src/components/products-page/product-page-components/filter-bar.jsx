@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { genres, types } from '../../../data/products-data';
+import { types } from '../../../data/products-data';
 
 const FilterDropDownbutton = (props) => {
 	return (
@@ -17,6 +17,7 @@ const FilterBar = () => {
 	const scrollHandler = (event) => {
 		setScrolled((scroll) => (scroll = event.target.scrollLeft));
 	};
+
 	return (
 		<aside className='filter-section'>
 			<div className='product-filter-bar'>
@@ -96,7 +97,7 @@ const FilterBar = () => {
 						}
 					/>
 
-					<FilterDropDownbutton
+					{/* <FilterDropDownbutton
 						key='Genre'
 						buttonName='Genre'
 						scroll={scroll}
@@ -112,7 +113,7 @@ const FilterBar = () => {
 								})}
 							</>
 						}
-					/>
+					/> */}
 				</div>
 			</div>
 		</aside>
