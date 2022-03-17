@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { featuredData } from '../../data/featured-data';
+import { useProductsData } from '../../context/data/data-context';
 
 const HomepageBody = () => {
+	const { featuredProducts } = useProductsData();
 	return (
 		<main className='homepage-content'>
 			<section>
@@ -23,17 +24,25 @@ const HomepageBody = () => {
 
 			<section id='feature-section' className='feature-section'>
 				<div className='features-row'>
-					{featuredData.map((item) => (
-						<FeaturedCard
-							key={item.id}
-							image={item.image}
-							inStock={item.inStock}
-							name={item.name}
-							offer={item.offer}
-							hasOffer={item.hasOffer}
-							type={item.type}
-						/>
-					))}
+					{featuredProducts.loading ? (
+						<div>LOADING AWESOMENESS.........</div>
+					) : (
+						featuredProducts.data.map((item) => {
+							const { id, image, name, offerMessage, inStock, type, hasOffer, fastDelivery } = item;
+							return (
+								<FeaturedCard
+									key={id}
+									image={image}
+									inStock={inStock}
+									name={name}
+									offer={offerMessage}
+									hasOffer={hasOffer}
+									type={type}
+									fastDelivery={fastDelivery}
+								/>
+							);
+						})
+					)}
 				</div>
 			</section>
 		</main>
@@ -49,24 +58,16 @@ const FeaturedCard = (props) => {
 				<img className='card-img' src={props.image} loading='lazy' alt={props.name} />
 
 				<div className='card-overlay'>
-					{<p>{props.inStock && props.hasOffer ? props.offer : 'Releasing:TBH'}</p>}
-					<p>{props.name}</p>
+					<p>{props.offer}</p>
+					<p className='text-align-center'>{props.name}</p>
 					{props.inStock && <button className='btn btn-primary'>Buy Now</button>}
-					<p>Available: {props.type}</p>
+					<p>{props.inStock ? (props.fastDelivery ? 'Delivery Tomorrow' : 'Will be delivered in 7 working days') : ''}</p>
 				</div>
 			</div>
 
-			{props.inStock ? (
-				props.hasOffer && (
-					<div className='card-badge'>
-						<p>{props.offer}</p>
-					</div>
-				)
-			) : (
-				<div className='card-badge'>
-					<p>Out of Stock</p>
-				</div>
-			)}
+			<div className='card-badge'>
+				<p>{props.offer}</p>
+			</div>
 		</div>
 	);
 };
