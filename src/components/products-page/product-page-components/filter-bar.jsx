@@ -96,24 +96,6 @@ const FilterBar = () => {
 							</>
 						}
 					/>
-
-					{/* <FilterDropDownbutton
-						key='Genre'
-						buttonName='Genre'
-						scroll={scroll}
-						children={
-							<>
-								{genres.map((product, index) => {
-									return (
-										<label key={index}>
-											<input type='checkbox' name='genre' />
-											{product}
-										</label>
-									);
-								})}
-							</>
-						}
-					/> */}
 				</div>
 			</div>
 		</aside>
