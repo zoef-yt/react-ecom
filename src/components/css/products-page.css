@@ -104,10 +104,6 @@
 	height: min-content;
 }
 
-.product-main > .card:hover {
-	cursor: pointer;
-}
-
 .product-heading {
 	font-size: 2rem;
 	max-width: 25ch;
@@ -115,6 +111,16 @@
 	font-weight: bold;
 	line-height: 1.5;
 	margin: 0 0 1rem 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	white-space: normal;
+}
+.product-heading:hover {
+	text-decoration: underline;
+	cursor: pointer;
 }
 
 .fav-holder {
@@ -134,7 +140,7 @@
 
 .fav-holder-selected {
 	position: absolute;
-	top: 29rem;
+	top: 1.5rem;
 	right: 0;
 	width: min-content;
 	height: min-content;
@@ -224,8 +230,15 @@
 	font-weight: bold;
 	color: var(--colour-primary);
 }
+
 .offer-price-message {
 	font-size: 1.7rem;
 	font-weight: bold;
 	color: var(--colour-accent-one);
+}
+
+.btn-products-disabled {
+	background-color: var(--colour-text-grey);
+	color: var(--colour-error-second);
+	cursor: not-allowed;
 }

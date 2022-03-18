@@ -45,3 +45,30 @@
 .wishlist-page > .card:hover .remove-wishlist {
 	top: 0;
 }
+
+.removing-wishlist {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	padding: 2rem;
+	display: grid;
+	place-items: center;
+	background-color: var(--colour-error);
+	color: var(--colour-text-white-two);
+	box-shadow: 0px 0px 10px 0px var(--colour-black-with-opacity-two);
+	top: 0;
+	left: 0;
+	border-radius: 0.5rem;
+	animation-duration: 300ms;
+	animation-name: remove;
+}
+
+@keyframes remove {
+	from {
+		height: 10%;
+	}
+	to {
+		height: 100%;
+	}
+}

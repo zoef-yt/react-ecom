@@ -5,9 +5,8 @@ import { useWishlist } from '../../../context/wishlist/wishlist-context';
 const SingleProductCard = (props) => {
 	const { toggleWishlist, wishlist } = useWishlist();
 	const isWishListed = wishlist.findIndex((product) => product.id === props.id) === -1 ? false : true;
-	console.log(isWishListed);
 	return (
-		<div className='card' onClick={() => props.onClick()}>
+		<div className='card'>
 			<div className='card-overlay-holder'>
 				<img className='card-img' src={props.image} alt={props.name} />
 				<div className='card-overlay'>
@@ -18,7 +17,7 @@ const SingleProductCard = (props) => {
 				<SecondHeartIcon />
 			</div>
 
-			<div className='card-footer flex-column justify-content-center align-items-center'>
+			<div onClick={() => props.onClick()} className='card-footer flex-column justify-content-center align-items-center'>
 				<h5 className='product-heading'>{props.name}</h5>
 				{props.inStock ? (
 					<>
@@ -38,13 +37,17 @@ const SingleProductCard = (props) => {
 						<button className='btn btn-products btn-secondary'>Add to Cart</button>
 					</>
 				) : (
-					<p>Out of Stock</p>
+					<>
+						<p>Out of Stock</p>
+						<button className='btn btn-products btn-products-disabled'>Buy Now!</button>
+						<button className='btn btn-products btn-products-disabled'>Add to Cart</button>
+					</>
 				)}
 			</div>
 
 			<div className='card-badge'>
 				{' '}
-				<p>{props.inStock ? props.offer : 'OUT OF STOCK'}</p>{' '}
+				<p>{props.offer}</p>{' '}
 			</div>
 		</div>
 	);
