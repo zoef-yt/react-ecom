@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { genres, types } from '../../../data/products-data';
+import { types } from '../../../data/products-data';
 
 const FilterDropDownbutton = (props) => {
 	return (
@@ -17,6 +17,7 @@ const FilterBar = () => {
 	const scrollHandler = (event) => {
 		setScrolled((scroll) => (scroll = event.target.scrollLeft));
 	};
+
 	return (
 		<aside className='filter-section'>
 			<div className='product-filter-bar'>
@@ -92,24 +93,6 @@ const FilterBar = () => {
 								<label>
 									<input type='radio' name='ratings' />1 Stars & above
 								</label>
-							</>
-						}
-					/>
-
-					<FilterDropDownbutton
-						key='Genre'
-						buttonName='Genre'
-						scroll={scroll}
-						children={
-							<>
-								{genres.map((product, index) => {
-									return (
-										<label key={index}>
-											<input type='checkbox' name='genre' />
-											{product}
-										</label>
-									);
-								})}
 							</>
 						}
 					/>

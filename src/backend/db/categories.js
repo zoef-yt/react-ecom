@@ -1,4 +1,4 @@
-import { v4 as uuid } from "uuid";
+import { v4 as uuid } from 'uuid';
 
 /**
  * Category Database can be added here.
@@ -6,22 +6,21 @@ import { v4 as uuid } from "uuid";
  * */
 
 export const categories = [
-  {
-    _id: uuid(),
-    categoryName: "fiction",
-    description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
-  },
-  {
-    _id: uuid(),
-    categoryName: "non-fiction",
-    description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
-  },
-  {
-    _id: uuid(),
-    categoryName: "horror",
-    description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
-  },
+	{
+		_id: uuid(),
+		categoryName: "'Consoles'",
+		description:
+			'A video game console is an electronic device that outputs a video signal or image to display a video game that can be played with a game controller.',
+	},
+	{
+		_id: uuid(),
+		categoryName: 'Games',
+		description: 'A game is a structured form of play, usually undertaken for entertainment or fun.',
+	},
+	{
+		_id: uuid(),
+		categoryName: 'Accessories',
+		description:
+			"A video game accessory is a distinct piece of hardware that is required to use a video game console, or one that enriches the video game's play experience.",
+	},
 ];

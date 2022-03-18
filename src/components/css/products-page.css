@@ -27,7 +27,7 @@
 	width: 60vw;
 	margin: 0 auto;
 	display: grid;
-	grid-template-columns: calc(11.1rem + 2vw) repeat(5, minmax(calc(15.1rem + 2vw), max-content));
+	grid-template-columns: calc(11.1rem + 2vw) repeat(4, minmax(calc(15.1rem + 2vw), max-content));
 	grid-template-rows: 1fr;
 	overflow-x: auto;
 	align-items: center;
@@ -104,11 +104,16 @@
 	height: min-content;
 }
 
+.product-main > .card:hover {
+	cursor: pointer;
+}
+
 .product-heading {
 	font-size: 2rem;
 	max-width: 25ch;
 	text-align: center;
 	font-weight: bold;
+	line-height: 1.5;
 	margin: 0 0 1rem 0;
 }
 
@@ -125,6 +130,27 @@
 	border-radius: 1rem 0 0 1rem;
 	cursor: pointer;
 	transition: all 0.3s ease-in-out;
+}
+
+.fav-holder-selected {
+	position: absolute;
+	top: 29rem;
+	right: 0;
+	width: min-content;
+	height: min-content;
+	padding: 5px;
+	display: flex;
+	align-items: center;
+	background-color: var(--colour-accent-third);
+	border-radius: 1rem 0 0 1rem;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	fill: var(--colour-error);
+}
+
+.fav-holder-selected > svg > * {
+	fill: var(--colour-error);
+	opacity: 1;
 }
 
 .card:hover .fav-holder {
@@ -184,4 +210,22 @@
 .btn-products {
 	margin: 1rem 0;
 	width: 90%;
+}
+
+/* text styling */
+
+.previous-price {
+	text-decoration: line-through;
+	font-size: 1rem;
+}
+
+.current-price {
+	font-size: 2rem;
+	font-weight: bold;
+	color: var(--colour-primary);
+}
+.offer-price-message {
+	font-size: 1.7rem;
+	font-weight: bold;
+	color: var(--colour-accent-one);
 }
