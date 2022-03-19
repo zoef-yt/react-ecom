@@ -10,7 +10,7 @@
 	margin: auto;
 	height: 100vh;
 	width: 100%;
-	max-width: 170rem;
+	max-width: 80vw;
 }
 
 .cartpage-main-content {
@@ -47,12 +47,9 @@
 .cartpage-products > .card {
 	height: 30rem;
 }
+
 .product-cart-detail {
 	margin: 0 2rem;
-	width: 100%;
-}
-.product-cart-detail .btn {
-	margin: 5px 0;
 	width: 100%;
 }
 
@@ -67,8 +64,7 @@
 .quantity {
 	display: flex;
 	align-items: center;
-	max-width: 100%;
-	gap: 2rem;
+	width: 100%;
 }
 
 .checkout-card > * {
@@ -97,10 +93,4 @@
 	grid-template-rows: 1fr;
 	gap: 2rem;
 	overflow: auto;
-}
-
-@media only screen and (min-width: 1999px) {
-	.suggestions-row {
-		max-width: 170rem;
-	}
 }
