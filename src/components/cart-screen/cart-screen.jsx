@@ -2,8 +2,11 @@ import React from 'react';
 import '../css/cart-screen.css';
 import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
+import { FeaturedCardGenerator } from '../featured-card-generator/featured-card-generator';
+import { useProductsData } from '../../context/data/data-context';
 
 const MyCartScreen = () => {
+	const { featuredProducts } = useProductsData();
 	return (
 		<div className='cartpage-homepage'>
 			<Header />
@@ -60,22 +63,8 @@ const MyCartScreen = () => {
 			<aside className='cartpage-suggestion-section'>
 				<section className='suggestions-section'>
 					<h1 className='text-align-center'>Suggestions</h1>
-					<div className='suggestions-row'>
-						{[...Array(14)].map((item, index) => (
-							<div key={index} className='card card-md'>
-								<div className='card-body card-overlay-holder'>
-									<img className='card-img' src='/assets/images/games/MIlesMorales-1.png' alt='..' />
-									<div className='card-overlay'>
-										<p>Releasing:TBH</p>
-										<p>Available: PS5 & PS4</p>
-									</div>
-								</div>
-
-								<div className='card-badge'>
-									<p>Pre Order Now!</p>
-								</div>
-							</div>
-						))}
+					<div style={{ gridTemplateColumns: featuredProducts && `repeat(${featuredProducts.data.length}, 1fr)` }} className='features-row'>
+						<FeaturedCardGenerator />
 					</div>
 				</section>
 			</aside>

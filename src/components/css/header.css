@@ -15,6 +15,14 @@
 	color: var(--colour-text-white);
 }
 
+.header-icon {
+	color: var(--colour-text-white);
+}
+
+.header-icon:hover {
+	cursor: pointer;
+	color: var(--colour-primary);
+}
 .text-field {
 	margin: 0;
 	max-width: 20vw;
