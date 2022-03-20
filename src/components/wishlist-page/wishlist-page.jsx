@@ -6,6 +6,7 @@ import { useProductsData } from '../../context/data/data-context';
 import { FeaturedCardGenerator } from '../featured-card-generator/featured-card-generator';
 import { useWishlist } from '../../context/wishlist/wishlist-context';
 import { SecondHeartIcon } from '../../assets/svg/svg';
+import { useMyCart } from '../../context/mycart/mycart-context';
 
 const WishListPage = () => {
 	const { featuredProducts } = useProductsData();
@@ -50,6 +51,8 @@ export { WishListPage };
 const WishlistedCard = (props) => {
 	const [removingItem, setRemovingItem] = useState(false);
 	const { toggleWishlist } = useWishlist();
+	const { myCart, addToCart, removeFromCart, changeCartQuantity } = useMyCart();
+	const isInCart = myCart.findIndex((item) => item.id === props.product.id) === -1 ? true : false;
 	const removeFromWishlist = (product) => {
 		setRemovingItem((prev) => (prev = true));
 		setTimeout(() => {
@@ -88,7 +91,18 @@ const WishlistedCard = (props) => {
 					<p className='current-price'>₹{price.toLocaleString()}</p>
 				)}
 				{inStock ? (
-					<button className='btn btn-secondary'>Move to Cart</button>
+					isInCart ? (
+						<button
+							onClick={() => {
+								addToCart(props.product);
+							}}
+							className='btn btn-secondary'
+						>
+							Move to Cart
+						</button>
+					) : (
+						<button className='btn btn-products-disabled '>Already in Cart</button>
+					)
 				) : (
 					<button className='btn btn-products-disabled'>Out of stock!</button>
 				)}
