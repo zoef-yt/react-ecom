@@ -42,6 +42,14 @@
 	z-index: 3;
 }
 
+.modal-error {
+	color: var(--colour-error);
+	font-size: 1.6rem;
+	margin: 0.5rem 0;
+	width: 30rem;
+	text-align: center;
+}
+
 .modal-opened {
 	backdrop-filter: blur(5px);
 }
