@@ -18,11 +18,14 @@ const LoginCardModal = () => {
 	const [textFields, setTextFields] = useState(defaultText);
 
 	const setUserDetails = (e) => {
-		console.log(e.target.name);
 		errorHandler(false, '');
+
 		setTextFields({
 			...textFields,
 			[e.target.name]: e.target.value,
+			emailError: false,
+			passWordError: false,
+			confirmPasswordError: false,
 		});
 	};
 
@@ -42,6 +45,7 @@ const LoginCardModal = () => {
 							: (setTextFields({
 									...textFields,
 									confirmPasswordError: true,
+									passWordError: true,
 							  }),
 							  errorHandler(true, 'Password and Confirm Password must be same'))
 						: (setTextFields({ ...textFields, confirmPasswordError: true }), errorHandler(true, 'Confirm Password is required'))
@@ -76,6 +80,7 @@ const LoginCardModal = () => {
 						type='email'
 						name='email'
 						onChange={(event) => setUserDetails(event)}
+						hasError={textFields.emailError}
 						value={textFields.email}
 					/>
 					<InputField
@@ -83,6 +88,7 @@ const LoginCardModal = () => {
 						type='password'
 						name='password'
 						onChange={(event) => setUserDetails(event)}
+						hasError={textFields.passWordError}
 						value={textFields.password}
 					/>
 					{!isLogin && (
@@ -92,6 +98,7 @@ const LoginCardModal = () => {
 								type='password'
 								name='confirmPassword'
 								onChange={(event) => setUserDetails(event)}
+								hasError={textFields.confirmPasswordError}
 								value={textFields.confirmPassword}
 							/>
 						</>
@@ -140,11 +147,19 @@ const LoginCardModal = () => {
 
 export { LoginCardModal };
 
-const InputField = ({ labelText, type, name, onChange, value }) => {
+const InputField = ({ labelText, type, name, onChange, value, hasError }) => {
 	return (
 		<>
 			<label htmlFor='email'>{labelText}</label>
-			<input className='text-field ' autoComplete='off' type={type} name={name} placeholder={labelText} onChange={onChange} value={value} />
+			<input
+				className={`text-field ${hasError && 'text-field-error'} `}
+				autoComplete='off'
+				type={type}
+				name={name}
+				placeholder={labelText}
+				onChange={onChange}
+				value={value}
+			/>
 		</>
 	);
 };
