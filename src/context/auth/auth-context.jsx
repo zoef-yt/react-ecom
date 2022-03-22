@@ -25,13 +25,11 @@ const AuthProvider = ({ children }) => {
 				password: user.password,
 			});
 			if (response.statusText) {
-				console.log(response);
 				localStorage.setItem('token', response.data.encodedToken);
 				setIsLogin(true);
 				setIsLoading(false);
 				errorHandler(false, '');
 				setUser(response.data.foundUser);
-				console.log(response);
 
 				return true;
 			}
@@ -50,7 +48,6 @@ const AuthProvider = ({ children }) => {
 				password: user.password,
 			});
 			if (response) {
-				console.log(response);
 				setIsLoading(false);
 				setIsLogin(true);
 				errorHandler(false, '');
