@@ -1,9 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useProductsData } from '../../../context/data/data-context';
-import { SingleProductCard } from './single-product-card';
+import { SingleProductCard } from '../../allComponent.jsx';
 
 const ProductsPageBody = () => {
+	// This will make page scroll at the top every time when you change the route this page
+	const { pathname } = useLocation();
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [pathname]);
+
 	// Getting data from context
 	const { products } = useProductsData();
 	return (

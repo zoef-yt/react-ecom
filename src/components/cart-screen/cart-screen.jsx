@@ -1,8 +1,6 @@
 import React from 'react';
 import '../css/cart-screen.css';
-import { Header } from '../header/header';
-import { Footer } from '../footer/footer';
-import { FeaturedCardGenerator } from '../featured-card-generator/featured-card-generator';
+import { Header, Footer, FeaturedCardGenerator } from '../allComponent';
 import { useProductsData } from '../../context/data/data-context';
 import { useMyCart } from '../../context/mycart/mycart-context';
 import { PlusIcon, MinusIcon, TrashIcon } from '../../assets/svg/svg';
@@ -21,7 +19,7 @@ const MyCartScreen = () => {
 		<div className='cartpage-homepage'>
 			<Header />
 			<main className='cartpage-main-content'>
-				<h1>My Cart(1)</h1>
+				<h1>My Cart{myCart.length >= 1 ? `(${myCart.length})` : ''}</h1>
 				<div className='cartpage-content flex-row space-evenly'>
 					<div className='cartpage-products'>
 						{myCart && myCart.length > 0 ? (
