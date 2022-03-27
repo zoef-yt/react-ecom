@@ -1,18 +1,13 @@
 //@ts-check
 import React from 'react';
 import { ShoppingCartIcon, HeartIcon, SunIcon, HalfMoonIcon } from '../../assets/svg/svg';
-import { useTheme } from '../../context/theme/theme-context';
 import { Link, NavLink } from 'react-router-dom';
 import '../css/header.css';
-import { useWishlist } from '../../context/wishlist/wishlist-context';
-import { useMyCart } from '../../context/mycart/mycart-context';
-import { useModal } from '../../context/modal/modal-context';
-import { useAuth } from '../../context/auth/auth-context';
-
+import { useModal, useAuth, useMyCart, useWishlist, useTheme } from '../../context/index';
 const Header = () => {
 	const { theme, toggleTheme } = useTheme();
-	const { wishlist } = useWishlist();
-	const { myCart } = useMyCart();
+	const { wishlist, emptyWishlist } = useWishlist();
+	const { myCart, emptyCart } = useMyCart();
 	const totalCartQuantity = myCart.reduce((acc, prd) => acc + prd.quantity, 0);
 	const { toggleModal } = useModal();
 	const { isLogin, user, logoutHandler } = useAuth();
@@ -58,7 +53,15 @@ const Header = () => {
 							<hr />
 							<li className='wishlist-icon'>My Wishlist</li>
 							<hr />
-							<li onClick={() => logoutHandler()}>Logout 😞</li>
+							<li
+								onClick={() => {
+									logoutHandler();
+									emptyCart();
+									emptyWishlist();
+								}}
+							>
+								Logout 😞
+							</li>
 						</div>
 					</div>
 				) : (

@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { SecondHeartIcon, PlusIcon, MinusIcon, TrashIcon } from '../../../assets/svg/svg';
-import { useMyCart } from '../../../context/mycart/mycart-context';
-import { useWishlist } from '../../../context/wishlist/wishlist-context';
+import { useMyCart, useWishlist, useAuth, useModal } from '../../../context/index.js';
 
 const SingleProductCard = (props) => {
+	const { user } = useAuth();
+	const { toggleModal } = useModal();
+
 	const { toggleWishlist, wishlist } = useWishlist();
 	const { myCart, addToCart, removeFromCart, changeCartQuantity } = useMyCart();
 
@@ -12,6 +14,12 @@ const SingleProductCard = (props) => {
 	const inCartItem = myCart.find((p) => p.id === props.id);
 
 	const isWishListed = wishlist.findIndex((product) => product.id === props.id) === -1 ? false : true;
+
+	const Navigate = useNavigate();
+
+	const openAuthModal = () => {
+		toggleModal();
+	};
 
 	return (
 		<div className='card'>
@@ -21,7 +29,7 @@ const SingleProductCard = (props) => {
 					<img src={props.image2} alt={props.name + '2'} />
 				</div>
 			</div>
-			<div onClick={() => toggleWishlist(props)} className={isWishListed ? 'fav-holder-selected' : 'fav-holder'}>
+			<div onClick={user ? () => toggleWishlist(props) : () => openAuthModal()} className={isWishListed ? 'fav-holder-selected' : 'fav-holder'}>
 				<SecondHeartIcon />
 			</div>
 
@@ -44,11 +52,24 @@ const SingleProductCard = (props) => {
 							<p className='current-price'>₹{props.price.toLocaleString()}</p>
 						)}
 						{isInCart ? (
-							<Link to='/myCart' className='btn btn-products flex-row justify-content-center btn-primary'>
+							<button
+								onClick={user ? () => Navigate('/myCart') : () => openAuthModal()}
+								className='btn btn-products flex-row justify-content-center btn-primary'
+							>
 								Go to Cart
-							</Link>
+							</button>
 						) : (
-							<button onClick={() => changeCartQuantity(props, 1)} className='btn btn-products btn-primary'>
+							<button
+								onClick={
+									user
+										? () => {
+												addToCart(props);
+												Navigate('/myCart');
+										  }
+										: () => openAuthModal()
+								}
+								className='btn btn-products btn-primary'
+							>
 								Buy Now!
 							</button>
 						)}
@@ -70,7 +91,10 @@ const SingleProductCard = (props) => {
 							</div>
 						) : (
 							<>
-								<button onClick={() => addToCart(props)} className='btn flex-row justify-content-center btn-products btn-secondary'>
+								<button
+									onClick={user ? () => addToCart(props) : () => openAuthModal()}
+									className='btn flex-row justify-content-center btn-products btn-secondary'
+								>
 									Add to Cart
 								</button>
 							</>
