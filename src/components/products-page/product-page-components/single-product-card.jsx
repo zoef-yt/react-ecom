@@ -10,10 +10,10 @@ const SingleProductCard = (props) => {
 	const { toggleWishlist, wishlist } = useWishlist();
 	const { myCart, addToCart, removeFromCart, changeCartQuantity } = useMyCart();
 
-	const isInCart = myCart.findIndex((p) => p.id === props.id) === -1 ? false : true;
-	const inCartItem = myCart.find((p) => p.id === props.id);
+	const isInCart = myCart.findIndex((p) => p._id === props._id) === -1 ? false : true;
+	const inCartItem = myCart.find((p) => p._id === props._id);
 
-	const isWishListed = wishlist.findIndex((product) => product.id === props.id) === -1 ? false : true;
+	const isWishListed = wishlist.findIndex((product) => product._id === props._id) === -1 ? false : true;
 
 	const Navigate = useNavigate();
 

@@ -11,7 +11,6 @@ export const useAxios = () => {
 	const operation = async (params) => {
 		try {
 			const result = await axios.request(params);
-			console.log('response', result);
 			setResponse(result.data);
 			setError('');
 		} catch (error) {

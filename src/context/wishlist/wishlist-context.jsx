@@ -6,13 +6,29 @@ const WishlistContext = createContext();
 
 const WishlistProvider = ({ children }) => {
 	const [wishlist, setWishlist] = useState([]);
-	const [currentProd, setCurrentProd] = useState(null);
 	const toggleWishlist = (product) => {
-		setCurrentProd(product);
-
 		setWishlist((prevList) => {
-			const index = prevList.findIndex((p) => p.id === product.id);
-			return index === -1 ? [...prevList, product] : prevList.filter((p) => p.id !== product.id);
+			const index = prevList.findIndex((p) => p._id === product._id);
+
+			index === -1
+				? fetchWishlist({
+						method: 'post',
+						url: '/api/user/wishlist',
+						headers: {
+							authorization: localStorage.getItem('token'),
+						},
+						data: {
+							product: product,
+						},
+				  })
+				: fetchWishlist({
+						method: 'delete',
+						url: `/api/user/wishlist/${product._id}`,
+						headers: {
+							authorization: localStorage.getItem('token'),
+						},
+				  });
+			return index === -1 ? [...prevList, product] : prevList.filter((p) => p._id !== product._id);
 		});
 	};
 
@@ -20,24 +36,17 @@ const WishlistProvider = ({ children }) => {
 		setWishlist([]);
 	};
 
-	const { response: responseWishlist, error: errorWishlist, loading: loadingWishlist, operation: fetchWishlist } = useAxios();
+	const { operation: fetchWishlist } = useAxios();
 
 	useEffect(() => {
-		console.log(currentProd);
 		fetchWishlist({
-			method: 'post',
+			method: 'get',
 			url: '/api/user/wishlist',
 			headers: {
 				authorization: localStorage.getItem('token'),
 			},
-			body: {
-				product: currentProd,
-			},
 		});
-		setCurrentProd(null);
-		console.log('fetchWishlist');
-		console.log(responseWishlist, loadingWishlist, errorWishlist);
-	}, [wishlist]);
+	}, []);
 
 	return <WishlistContext.Provider value={{ wishlist, toggleWishlist, emptyWishlist }}>{children}</WishlistContext.Provider>;
 };

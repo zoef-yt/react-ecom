@@ -24,7 +24,7 @@ const MyCartScreen = () => {
 					<div className='cartpage-products'>
 						{myCart && myCart.length > 0 ? (
 							myCart.map((product) => {
-								const isWishListed = wishlist.findIndex((item) => item.id === product.id) === -1 ? false : true;
+								const isWishListed = wishlist.findIndex((item) => item.id === product._id) === -1 ? false : true;
 
 								const { id, name, image, price, offerPrice, quantity } = product;
 								return (
