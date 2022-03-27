@@ -2,13 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { App } from './App';
-import { ThemeProvider } from './context/theme/theme-context';
 import { BrowserRouter } from 'react-router-dom';
 import { makeServer } from './server';
-import { ProductsDataProvider } from './context/data/data-context';
-import { ModalProvider } from './context/modal/modal-context';
-import { AuthProvider } from './context/auth/auth-context';
-
+import { AuthProvider, ModalProvider, ProductsDataProvider, ThemeProvider } from './context/index.js';
 // Call make Server
 makeServer();
 

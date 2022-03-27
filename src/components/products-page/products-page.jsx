@@ -1,9 +1,6 @@
 import React from 'react';
 import '../css/products-page.css';
-import { Footer } from '../footer/footer';
-import { Header } from '../header/header';
-import { FilterBar } from './product-page-components/filter-bar';
-import { ProductsPageBody } from './product-page-components/product-page-body';
+import { Header, Footer, FilterBar, ProductsPageBody } from '../allComponent.jsx';
 
 const ProductsPage = () => {
 	return (

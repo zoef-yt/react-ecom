@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import '../css/wishlist.css';
-import { Header } from '../header/header';
-import { Footer } from '../footer/footer';
 import { useProductsData } from '../../context/data/data-context';
-import { FeaturedCardGenerator } from '../featured-card-generator/featured-card-generator';
+import { FeaturedCardGenerator, Header, Footer } from '../allComponent.jsx';
 import { useWishlist } from '../../context/wishlist/wishlist-context';
 import { SecondHeartIcon } from '../../assets/svg/svg';
 import { useMyCart } from '../../context/mycart/mycart-context';

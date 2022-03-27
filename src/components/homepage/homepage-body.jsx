@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useProductsData } from '../../context/data/data-context';
-import { FeaturedCardGenerator } from '../featured-card-generator/featured-card-generator';
+import { FeaturedCardGenerator } from '../allComponent.jsx';
 
 const HomepageBody = () => {
 	const { featuredProducts } = useProductsData();

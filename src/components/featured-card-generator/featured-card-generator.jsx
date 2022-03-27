@@ -1,10 +1,9 @@
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import { useProductsData } from '../../context/data/data-context';
 
 const FeaturedCardGenerator = () => {
 	const { featuredProducts } = useProductsData();
-
 	return (
 		<>
 			{featuredProducts.loading ? (
@@ -31,15 +30,16 @@ const FeaturedCardGenerator = () => {
 };
 
 const FeaturedCard = (props) => {
+	const Navigate = useNavigate();
+
 	return (
 		<div className='card card-md'>
 			<div className='card-body card-overlay-holder'>
 				<img className='card-img' src={props.image} loading='lazy' alt={props.name} />
 
-				<div className='card-overlay'>
+				<div onClick={() => Navigate('/products')} className='card-overlay'>
 					<p>{props.offer}</p>
 					<p className='text-align-center'>{props.name}</p>
-					{props.inStock && <button className='btn btn-primary'>Buy Now</button>}
 					<p>{props.inStock ? (props.fastDelivery ? 'Delivery Tomorrow' : 'Will be delivered in 7 working days') : ''}</p>
 				</div>
 			</div>

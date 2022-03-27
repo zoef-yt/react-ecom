@@ -1,8 +1,6 @@
 import React from 'react';
-import { Header } from '../header/header';
 import '../css/homepage.css';
-import { HomepageBody } from './homepage-body';
-import { Footer } from '../footer/footer';
+import { Footer, Header, HomepageBody } from '../allComponent.jsx';
 const Homepage = () => {
 	return (
 		<div className='homepage'>
