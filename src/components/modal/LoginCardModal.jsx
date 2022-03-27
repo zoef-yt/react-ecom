@@ -7,9 +7,9 @@ const LoginCardModal = () => {
 	const { toggleModal } = useModal();
 
 	const defaultText = {
-		email: '',
-		password: '',
-		confirmPassword: '',
+		email: 'shaikhzoef36@gmail.com',
+		password: 'shaikhzoef36@gmail.com',
+		confirmPassword: 'shaikhzoef36@gmail.com',
 		emailError: false,
 		passWordError: false,
 		confirmPasswordError: false,

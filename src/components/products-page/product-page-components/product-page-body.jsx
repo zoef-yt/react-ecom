@@ -31,7 +31,7 @@ const ProductsPageBody = () => {
 						//! Final products is show here
 						<SingleProductCard
 							key={_id}
-							id={_id}
+							_id={_id}
 							image={image}
 							image2={image2}
 							name={name}

@@ -7,7 +7,7 @@ const MyCartProvider = ({ children }) => {
 
 	const addToCart = (product) => {
 		setMyCart((prevList) => {
-			const index = prevList.findIndex((p) => p.id === product.id);
+			const index = prevList.findIndex((p) => p._id === product._id);
 			return index === -1 ? [...prevList, { ...product, quantity: 1 }] : prevList;
 		});
 	};
@@ -15,16 +15,20 @@ const MyCartProvider = ({ children }) => {
 	const changeCartQuantity = (product, quantityNumber) => {
 		setMyCart((prevList) =>
 			prevList.map((p) => {
-				return p.id === product.id ? { ...product, quantity: p.quantity + quantityNumber } : p;
+				return p._id === product._id ? { ...product, quantity: p.quantity + quantityNumber } : p;
 			}),
 		);
 	};
 
 	const removeFromCart = (product) => {
-		setMyCart((prevList) => prevList.filter((prev) => prev.id !== product.id));
+		setMyCart((prevList) => prevList.filter((prev) => prev._id !== product._id));
 	};
 
-	return <MyCartContext.Provider value={{ myCart, addToCart, removeFromCart, changeCartQuantity }}>{children}</MyCartContext.Provider>;
+	const emptyCart = () => {
+		setMyCart([]);
+	};
+
+	return <MyCartContext.Provider value={{ myCart, addToCart, removeFromCart, changeCartQuantity, emptyCart }}>{children}</MyCartContext.Provider>;
 };
 
 const useMyCart = () => useContext(MyCartContext);
