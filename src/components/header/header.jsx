@@ -1,4 +1,3 @@
-//@ts-check
 import React from 'react';
 import { ShoppingCartIcon, HeartIcon, SunIcon, HalfMoonIcon } from '../../assets/svg/svg';
 import { Link, NavLink } from 'react-router-dom';
@@ -8,7 +7,7 @@ const Header = () => {
 	const { theme, toggleTheme } = useTheme();
 	const { wishlist, emptyWishlist } = useWishlist();
 	const { myCart, emptyCart } = useMyCart();
-	const totalCartQuantity = myCart.reduce((acc, prd) => acc + prd.quantity, 0);
+	const totalCartQuantity = myCart.reduce((acc, prd) => acc + prd.qty, 0);
 	const { toggleModal } = useModal();
 	const { isLogin, user, logoutHandler } = useAuth();
 

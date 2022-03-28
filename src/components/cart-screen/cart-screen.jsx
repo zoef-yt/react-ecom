@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../css/cart-screen.css';
 import { Header, Footer, FeaturedCardGenerator } from '../allComponent';
-import { useProductsData } from '../../context/data/data-context';
-import { useMyCart } from '../../context/mycart/mycart-context';
 import { PlusIcon, MinusIcon, TrashIcon } from '../../assets/svg/svg';
-import { useWishlist } from '../../context/wishlist/wishlist-context';
+import { useWishlist, useMyCart, useProductsData } from '../../context/index.js';
+import { useLocation } from 'react-router-dom';
 
 const MyCartScreen = () => {
 	const { featuredProducts } = useProductsData();
 	const { myCart, removeFromCart, changeCartQuantity } = useMyCart();
 	const { toggleWishlist, wishlist } = useWishlist();
-	let pricingStructure = {
-		OGPricing: myCart.reduce((acc, prd) => acc + prd.price * prd.quantity, 0),
-		discountedPrice: myCart.reduce((acc, prd) => acc + (prd.price - prd.offerPrice) * prd.quantity, 0),
-		deliveryPrice: myCart.reduce((acc, prd) => acc + prd.quantity * 15, 0),
+	const pricingStructure = {
+		OGPricing: myCart.reduce((acc, prd) => acc + prd.price * prd.qty, 0),
+		discountedPrice: myCart.reduce((acc, prd) => acc + (prd.price - prd.offerPrice) * prd.qty, 0),
+		deliveryPrice: myCart.reduce((acc, prd) => acc + prd.qty * 15, 0),
 	};
+	// This will make page scroll at the top every time when you change the route this page
+	const { pathname } = useLocation();
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [pathname]);
 	return (
 		<div className='cartpage-homepage'>
 			<Header />
@@ -24,11 +28,11 @@ const MyCartScreen = () => {
 					<div className='cartpage-products'>
 						{myCart && myCart.length > 0 ? (
 							myCart.map((product) => {
-								const isWishListed = wishlist.findIndex((item) => item.id === product._id) === -1 ? false : true;
+								const isWishListed = wishlist.findIndex((item) => item._id === product._id) === -1 ? false : true;
 
-								const { id, name, image, price, offerPrice, quantity } = product;
+								const { _id, name, image, price, offerPrice, qty } = product;
 								return (
-									<div key={id} className='card card-xl'>
+									<div key={_id} className='card card-xl'>
 										<div className='flex-row'>
 											<img className='cartpage-product-img img' src={image} alt={name} />
 											<div className='flex-column space-around product-cart-detail'>
@@ -41,14 +45,14 @@ const MyCartScreen = () => {
 														100
 													).toFixed()}% OFF)`}</span>
 												</p>
-												<div className='flex-row space-between btn-products quantity'>
+												<div className='flex-row space-between btn-products qty'>
 													<button
-														onClick={quantity > 1 ? () => changeCartQuantity(product, -1) : () => removeFromCart(product)}
+														onClick={qty > 1 ? () => changeCartQuantity(product, -1) : () => removeFromCart(product)}
 														className='btn btn-secondary btn-quantity'
 													>
-														{quantity > 1 ? <MinusIcon /> : <TrashIcon />}
+														{qty > 1 ? <MinusIcon /> : <TrashIcon />}
 													</button>
-													<h3>{quantity}</h3>
+													<h3>{qty}</h3>
 													<button
 														onClick={() => changeCartQuantity(product, 1)}
 														className='btn flex-row justify-content-center btn-secondary btn-quantity'
@@ -88,7 +92,7 @@ const MyCartScreen = () => {
 							<h3>Price Details</h3>
 							<hr />
 							<div className='flex-row space-between'>
-								<p>Price({myCart.reduce((acc, prd) => acc + prd.quantity, 0).toLocaleString()} Items)</p>
+								<p>Price({myCart.reduce((acc, prd) => acc + prd.qty, 0).toLocaleString()} Items)</p>
 								<p>₹{pricingStructure.OGPricing.toLocaleString()}</p>
 							</div>
 							<div className='flex-row space-between'>
