@@ -46,6 +46,7 @@ const AuthProvider = ({ children }) => {
 			const response = await axios.post('/api/auth/signup', {
 				email: user.email,
 				password: user.password,
+				name: user.name,
 			});
 			if (response) {
 				setIsLoading(false);

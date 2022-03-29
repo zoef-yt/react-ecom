@@ -41,10 +41,7 @@ const Header = () => {
 				<div onClick={toggleTheme}>{theme === 'dark' ? <SunIcon className='header-icon' /> : <HalfMoonIcon className='header-icon' />}</div>
 				{user != null ? (
 					<div className='badge-holder'>
-						<img
-							className='avatar avatar-sm'
-							src='https://media-exp1.licdn.com/dms/image/C4E03AQEm0ZBjaIr1hg/profile-displayphoto-shrink_200_200/0/1610261504692?e=1649894400&v=beta&t=kKO77EwqflEDsrZf5eG7xC7ZUB4hD_BkZuRJyFiFHbI'
-						/>
+						<div className='avatar avatar-sm '>{user.name.substring(0, 1).toUpperCase()}</div>
 						<div className='profile-modal'>
 							<li>My Profile</li>
 							<hr />

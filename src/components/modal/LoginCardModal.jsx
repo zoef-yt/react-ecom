@@ -5,16 +5,22 @@ import { useModal } from '../../context/modal/modal-context';
 const LoginCardModal = () => {
 	const { isLogin, isLoading, error, toggleIsLogin, signUpHandler, loginHandler, logoutHandler, errorHandler } = useAuth();
 	const { toggleModal } = useModal();
-
+	const [showPassword, setShowPassword] = useState(false);
 	const defaultText = {
-		email: 'shaikhzoef36@gmail.com',
-		password: 'shaikhzoef36@gmail.com',
-		confirmPassword: 'shaikhzoef36@gmail.com',
+		name: '',
+		email: '',
+		password: '',
+		confirmPassword: '',
+		nameError: false,
 		emailError: false,
 		passWordError: false,
 		confirmPasswordError: false,
 	};
 
+	const testUser = {
+		email: 'shaikhzoef36@gmail.com',
+		password: 'shaikhzoef',
+	};
 	const [textFields, setTextFields] = useState(defaultText);
 
 	const setUserDetails = (e) => {
@@ -23,6 +29,7 @@ const LoginCardModal = () => {
 		setTextFields({
 			...textFields,
 			[e.target.name]: e.target.value,
+			nameError: false,
 			emailError: false,
 			passWordError: false,
 			confirmPasswordError: false,
@@ -30,28 +37,29 @@ const LoginCardModal = () => {
 	};
 
 	const signupChecker = () => {
-		const { email, password, confirmPassword } = textFields;
-
-		email.length !== 0
-			? email
-					.toLowerCase()
-					.match(
-						/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-					)
-				? password.length !== 0
-					? confirmPassword.length !== 0
-						? password === confirmPassword
-							? signUpHandler({ email: email, password: password })
-							: (setTextFields({
-									...textFields,
-									confirmPasswordError: true,
-									passWordError: true,
-							  }),
-							  errorHandler(true, 'Password and Confirm Password must be same'))
-						: (setTextFields({ ...textFields, confirmPasswordError: true }), errorHandler(true, 'Confirm Password is required'))
-					: (errorHandler(true, 'Password is required'), setTextFields({ ...textFields, passWordError: true }))
-				: (errorHandler(true, 'Email is invalid'), setTextFields({ ...textFields, emailError: true }))
-			: (setTextFields({ ...textFields, emailError: true }), errorHandler(true, 'Email is required'));
+		const { email, password, confirmPassword, name } = textFields;
+		name.length > 2
+			? email.length !== 0
+				? email
+						.toLowerCase()
+						.match(
+							/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+						)
+					? password.length !== 0
+						? confirmPassword.length !== 0
+							? password === confirmPassword
+								? signUpHandler({ email: email, password: password, name: name })
+								: (setTextFields({
+										...textFields,
+										confirmPasswordError: true,
+										passWordError: true,
+								  }),
+								  errorHandler(true, 'Password and Confirm Password must be same'))
+							: (setTextFields({ ...textFields, confirmPasswordError: true }), errorHandler(true, 'Confirm Password is required'))
+						: (errorHandler(true, 'Password is required'), setTextFields({ ...textFields, passWordError: true }))
+					: (errorHandler(true, 'Email is invalid'), setTextFields({ ...textFields, emailError: true }))
+				: (setTextFields({ ...textFields, emailError: true }), errorHandler(true, 'Email is required'))
+			: (setTextFields({ ...textFields, nameError: true }), errorHandler(true, 'Name must be atleast 2 characters long'));
 	};
 
 	const loginChecker = async () => {
@@ -75,6 +83,16 @@ const LoginCardModal = () => {
 			<div className='flex-column align-items-center space-evenly'>
 				<h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
 				<div className='input-group'>
+					{!isLogin && (
+						<InputField
+							labelText='Name'
+							type='text'
+							name='name'
+							onChange={setUserDetails}
+							value={textFields.name}
+							hasError={textFields.nameError}
+						/>
+					)}
 					<InputField
 						labelText='Email Address'
 						type='email'
@@ -85,7 +103,7 @@ const LoginCardModal = () => {
 					/>
 					<InputField
 						labelText='Password'
-						type='password'
+						type={!showPassword ? 'password' : 'text'}
 						name='password'
 						onChange={(event) => setUserDetails(event)}
 						hasError={textFields.passWordError}
@@ -95,7 +113,7 @@ const LoginCardModal = () => {
 						<>
 							<InputField
 								labelText='Confirm password'
-								type='password'
+								type={!showPassword ? 'password' : 'text'}
 								name='confirmPassword'
 								onChange={(event) => setUserDetails(event)}
 								hasError={textFields.confirmPasswordError}
@@ -105,15 +123,26 @@ const LoginCardModal = () => {
 					)}
 				</div>
 
-				{/*//! Commented for future 
-				{isLogin && (
-					<div className='remember-me-block'>
-						<input type='checkbox' className='checkbox' name='remember me' />
-						<label className='margin-right remember-me-text' htmlFor='remember-me'>
-							Remember me
-						</label>
-					</div>
-				)} */}
+				{!isLogin ? (
+					<p onClick={() => setShowPassword((prev) => !prev)} className='btn btn-link'>
+						showPassword
+					</p>
+				) : (
+					<>
+						<p
+							onClick={() =>
+								setTextFields({
+									...textFields,
+									password: testUser.password,
+									email: testUser.email,
+								})
+							}
+							className='btn btn-link'
+						>
+							Test Login
+						</p>
+					</>
+				)}
 
 				<button
 					onClick={
@@ -135,6 +164,7 @@ const LoginCardModal = () => {
 					onClick={() => {
 						toggleIsLogin();
 						errorHandler(false, '');
+						setShowPassword(false);
 					}}
 					className=' btn-link btn'
 				>
