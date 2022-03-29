@@ -15,7 +15,7 @@ const SingleProductCard = (props) => {
 
 	const isWishListed = wishlist.findIndex((product) => product._id === props._id) === -1 ? false : true;
 
-	const Navigate = useNavigate();
+	const navigate = useNavigate();
 
 	const openAuthModal = () => {
 		toggleModal();
@@ -53,7 +53,7 @@ const SingleProductCard = (props) => {
 						)}
 						{isInCart ? (
 							<button
-								onClick={user ? () => Navigate('/myCart') : () => openAuthModal()}
+								onClick={user ? () => navigate('/myCart') : () => openAuthModal()}
 								className='btn btn-products flex-row justify-content-center btn-primary'
 							>
 								Go to Cart
@@ -64,7 +64,7 @@ const SingleProductCard = (props) => {
 									user
 										? () => {
 												addToCart(props);
-												Navigate('/myCart');
+												navigate('/myCart');
 										  }
 										: () => openAuthModal()
 								}
@@ -76,12 +76,12 @@ const SingleProductCard = (props) => {
 						{isInCart ? (
 							<div className='flex-row space-between align-items-center btn-products'>
 								<button
-									onClick={inCartItem.quantity > 1 ? () => changeCartQuantity(props, -1) : () => removeFromCart(props)}
+									onClick={inCartItem.qty > 1 ? () => changeCartQuantity(props, -1) : () => removeFromCart(props)}
 									className='btn  btn-secondary btn-quantity'
 								>
-									{inCartItem.quantity > 1 ? <MinusIcon /> : <TrashIcon />}
+									{inCartItem.qty > 1 ? <MinusIcon /> : <TrashIcon />}
 								</button>
-								<h3>{inCartItem.quantity}</h3>
+								<h3>{inCartItem.qty}</h3>
 								<button
 									onClick={() => changeCartQuantity(props, 1)}
 									className='btn flex-row justify-content-center btn-secondary btn-quantity'

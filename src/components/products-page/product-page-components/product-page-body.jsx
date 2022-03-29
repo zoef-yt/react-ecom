@@ -1,5 +1,4 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useProductsData } from '../../../context/data/data-context';
 import { SingleProductCard } from '../../allComponent.jsx';
