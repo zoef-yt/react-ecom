@@ -48,7 +48,7 @@ const reducer = (state, action) => {
 				return {
 					...state,
 					sortByPrice: 'LOW_TO_HIGH',
-					dataToShow: state.dataToShow?.sort((a, b) => a.offerPrice - b.offerPrice),
+					dataToShow: [...state.dataToShow]?.sort((a, b) => a.offerPrice - b.offerPrice),
 				};
 			} else if (action.payload === 'HIGH_TO_LOW') {
 				return {

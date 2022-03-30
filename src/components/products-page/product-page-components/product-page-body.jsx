@@ -14,8 +14,6 @@ const ProductsPageBody = () => {
 	const { products } = useProductsData();
 	const { FilterState, FilterDispatch } = useFilter();
 	useEffect(() => {
-		console.log('ProductsPageBody: useEffect');
-		console.log(FilterState);
 		FilterState.dataToShow.length === 0 &&
 			FilterDispatch({
 				type: 'GET_DATA',
@@ -27,8 +25,7 @@ const ProductsPageBody = () => {
 		const priceRangedProduct = priceRangeFilter(filterState.priceRange, inStockCheckedProduct);
 		const typesOfProduct = typesOfProductFilter(filterState.types, priceRangedProduct);
 		const RatingProduct = ratingFilter(filterState.rating, typesOfProduct);
-		const RatingSortedProduct = ratingSorted(RatingProduct);
-		const SearchedProduct = searchFilter(filterState.search, RatingSortedProduct);
+		const SearchedProduct = searchFilter(filterState.search, RatingProduct);
 		return SearchedProduct;
 	};
 
@@ -40,8 +37,6 @@ const ProductsPageBody = () => {
 		type != null ? data.filter((products) => products.categoryName.toLowerCase().includes(type.toLowerCase())) : data;
 
 	const ratingFilter = (rating, data) => (rating != null ? data.filter((product) => product.ratings <= rating) : data);
-
-	const ratingSorted = (data) => data.sort((a, b) => b.ratings - a.ratings);
 
 	const searchFilter = (search, data) =>
 		search != null && search != ''

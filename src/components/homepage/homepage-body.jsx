@@ -8,7 +8,6 @@ const HomepageBody = () => {
 	const { FilterDispatch } = useFilter();
 
 	useEffect(() => {
-		console.log('HomepageBody: useEffect');
 		FilterDispatch({
 			type: 'GET_DATA',
 			payload: products.data,
