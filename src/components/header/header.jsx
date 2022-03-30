@@ -2,7 +2,7 @@ import React from 'react';
 import { ShoppingCartIcon, HeartIcon, SunIcon, HalfMoonIcon } from '../../assets/svg/svg';
 import { Link, NavLink } from 'react-router-dom';
 import '../css/header.css';
-import { useModal, useAuth, useMyCart, useWishlist, useTheme } from '../../context/index';
+import { useModal, useAuth, useMyCart, useWishlist, useTheme, useFilter } from '../../context/index';
 const Header = () => {
 	const { theme, toggleTheme } = useTheme();
 	const { wishlist, emptyWishlist } = useWishlist();
@@ -10,6 +10,7 @@ const Header = () => {
 	const totalCartQuantity = myCart.reduce((acc, prd) => acc + prd.qty, 0);
 	const { toggleModal } = useModal();
 	const { isLogin, user, logoutHandler } = useAuth();
+	const { FilterDispatch } = useFilter();
 
 	return (
 		<nav className='homepage-navbar'>
@@ -18,7 +19,14 @@ const Header = () => {
 					<h1>Need Games</h1>
 				</Link>
 			</div>
-			<input type='search' className='text-field' placeholder='Search For Games' />
+			<input
+				type='search'
+				className='text-field'
+				placeholder='Search For Games'
+				onChange={(e) => {
+					FilterDispatch({ type: 'SEARCH', payload: e.target.value });
+				}}
+			/>
 			<div className='navbar-cta'>
 				{user && (
 					<>
