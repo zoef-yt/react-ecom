@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '../../context/auth/auth-context';
 import '../css/products-page.css';
-import { useModal } from '../../context/modal/modal-context';
+import { useAuth, useModal } from '../../context/index';
+import { ShowPasswordEyeIcon, HidePasswordEyeIcon } from '../../assets/svg/svg';
 const LoginCardModal = () => {
 	const { isLogin, isLoading, error, toggleIsLogin, signUpHandler, loginHandler, logoutHandler, errorHandler } = useAuth();
 	const { toggleModal } = useModal();
-	const [showPassword, setShowPassword] = useState(false);
+	const [showPassword, setShowPassword] = useState({ password: false, confirmPassword: false });
 	const defaultText = {
 		name: '',
 		email: '',
@@ -78,6 +78,10 @@ const LoginCardModal = () => {
 			: (setTextFields({ ...textFields, emailError: true }), errorHandler(true, 'Email is required'));
 	};
 
+	const togglePassword = (name) => {
+		setShowPassword({ ...showPassword, [name]: !showPassword[name] });
+	};
+
 	return (
 		<div className='modal-card'>
 			<div className='flex-column align-items-center space-evenly'>
@@ -103,45 +107,43 @@ const LoginCardModal = () => {
 					/>
 					<InputField
 						labelText='Password'
-						type={!showPassword ? 'password' : 'text'}
+						type={!showPassword.password ? 'password' : 'text'}
 						name='password'
 						onChange={(event) => setUserDetails(event)}
 						hasError={textFields.passWordError}
 						value={textFields.password}
+						passwordType={'password'}
+						onClick={togglePassword}
 					/>
 					{!isLogin && (
 						<>
 							<InputField
 								labelText='Confirm password'
-								type={!showPassword ? 'password' : 'text'}
+								type={!showPassword.confirmPassword ? 'password' : 'text'}
 								name='confirmPassword'
 								onChange={(event) => setUserDetails(event)}
 								hasError={textFields.confirmPasswordError}
 								value={textFields.confirmPassword}
+								onClick={togglePassword}
+								passwordType={'confirmPassword'}
 							/>
 						</>
 					)}
 				</div>
 
-				{!isLogin ? (
-					<p onClick={() => setShowPassword((prev) => !prev)} className='btn btn-link'>
-						showPassword
+				{isLogin && (
+					<p
+						onClick={() =>
+							setTextFields({
+								...textFields,
+								password: testUser.password,
+								email: testUser.email,
+							})
+						}
+						className='btn btn-link'
+					>
+						Test Login
 					</p>
-				) : (
-					<>
-						<p
-							onClick={() =>
-								setTextFields({
-									...textFields,
-									password: testUser.password,
-									email: testUser.email,
-								})
-							}
-							className='btn btn-link'
-						>
-							Test Login
-						</p>
-					</>
 				)}
 
 				<button
@@ -164,7 +166,7 @@ const LoginCardModal = () => {
 					onClick={() => {
 						toggleIsLogin();
 						errorHandler(false, '');
-						setShowPassword(false);
+						setShowPassword({ password: false, confirmPassword: false });
 					}}
 					className=' btn-link btn'
 				>
@@ -177,10 +179,19 @@ const LoginCardModal = () => {
 
 export { LoginCardModal };
 
-const InputField = ({ labelText, type, name, onChange, value, hasError }) => {
+const InputField = ({ labelText, type, name, onChange, value, hasError, onClick, passwordType }) => {
+	console.log(type);
 	return (
 		<>
-			<label htmlFor='email'>{labelText}</label>
+			<div className='flex-row align-items-center space-between'>
+				<label htmlFor='email'>{labelText}</label>
+				{labelText.toLowerCase().includes('password') &&
+					(type === 'password' ? (
+						<ShowPasswordEyeIcon className='header-icon' onClick={() => onClick(passwordType)} />
+					) : (
+						<HidePasswordEyeIcon className='header-icon' onClick={() => onClick(passwordType)} />
+					))}
+			</div>
 			<input
 				className={`text-field ${hasError && 'text-field-error'} `}
 				autoComplete='off'

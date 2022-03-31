@@ -35,11 +35,13 @@
 	height: 1.8rem;
 	transition: all 0.3s ease-in-out;
 }
+
 .modal-card {
 	max-width: max-content;
 	width: 100%;
 	z-index: 3;
 }
+
 .modal-error {
 	color: var(--colour-error);
 	font-size: 1.6rem;
