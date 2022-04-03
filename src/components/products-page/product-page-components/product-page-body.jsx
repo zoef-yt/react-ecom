@@ -16,7 +16,7 @@ const ProductsPageBody = () => {
 	useEffect(() => {
 		FilterState.dataToShow.length === 0 &&
 			FilterDispatch({
-				type: 'GET_DATA',
+				type: 'SET_DATA',
 				payload: products.data,
 			});
 	}, [products]);
@@ -36,7 +36,7 @@ const ProductsPageBody = () => {
 	const typesOfProductFilter = (type, data) =>
 		type != null ? data.filter((products) => products.categoryName.toLowerCase().includes(type.toLowerCase())) : data;
 
-	const ratingFilter = (rating, data) => (rating != null ? data.filter((product) => product.ratings <= rating) : data);
+	const ratingFilter = (rating, data) => (rating != null ? data.filter((product) => product.ratings >= rating) : data);
 
 	const searchFilter = (search, data) =>
 		search != null && search != ''

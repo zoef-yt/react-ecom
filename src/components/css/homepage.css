@@ -61,7 +61,7 @@
 }
 
 .card-overlay-holder:hover .card-img {
-	filter: blur(3px);
+	filter: blur(5px);
 }
 
 .card-overlay-holder:hover .card-overlay {

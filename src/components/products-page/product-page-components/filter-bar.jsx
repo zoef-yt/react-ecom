@@ -35,7 +35,7 @@ const FilterBar = () => {
 									<input
 										type='radio'
 										name='sort-by-price'
-										checked={FilterState.sortByPrice === 'LOW_TO_HIGH' ? true : false}
+										checked={FilterState.sortByPrice === 'LOW_TO_HIGH'}
 										onChange={() => FilterDispatch({ type: 'SORT_BY_PRICE', payload: 'LOW_TO_HIGH' })}
 									/>
 									Price: Low to High
@@ -45,7 +45,7 @@ const FilterBar = () => {
 									<input
 										type='radio'
 										name='sort-by-price'
-										checked={FilterState.sortByPrice === 'HIGH_TO_LOW' ? true : false}
+										checked={FilterState.sortByPrice === 'HIGH_TO_LOW'}
 										onChange={() => FilterDispatch({ type: 'SORT_BY_PRICE', payload: 'HIGH_TO_LOW' })}
 									/>
 									Price: High to Low
@@ -83,7 +83,7 @@ const FilterBar = () => {
 									/>
 								</div>
 
-								<h2>{FilterState.priceRange}</h2>
+								<h2>₹{FilterState.priceRange}</h2>
 							</>
 						}
 					/>
@@ -119,19 +119,10 @@ const FilterBar = () => {
 									<input
 										type='radio'
 										name='ratings'
-										value={FilterState.ratings === '5'}
-										onChange={() => FilterDispatch({ type: 'RATING', payload: 5 })}
-									/>
-									5 Stars & below
-								</label>
-								<label>
-									<input
-										type='radio'
-										name='ratings'
 										value={FilterState.ratings === '4'}
 										onChange={() => FilterDispatch({ type: 'RATING', payload: 4 })}
 									/>
-									4 Stars & below
+									4 Stars & above
 								</label>
 								<label>
 									<input
@@ -140,7 +131,7 @@ const FilterBar = () => {
 										value={FilterState.ratings === '3'}
 										onChange={() => FilterDispatch({ type: 'RATING', payload: 3 })}
 									/>
-									3 Stars & below
+									3 Stars & above
 								</label>
 								<label>
 									<input
@@ -149,7 +140,7 @@ const FilterBar = () => {
 										value={FilterState.ratings === '2'}
 										onChange={() => FilterDispatch({ type: 'RATING', payload: 2 })}
 									/>
-									2 Stars & below
+									2 Stars & above
 								</label>
 
 								<label>
@@ -159,7 +150,7 @@ const FilterBar = () => {
 										value={FilterState.ratings === '1'}
 										onChange={() => FilterDispatch({ type: 'RATING', payload: 1 })}
 									/>
-									1 Stars & below
+									1 Stars & above
 								</label>
 							</>
 						}

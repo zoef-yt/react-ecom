@@ -5,7 +5,7 @@ const initialData = {
 	sortByPrice: '',
 	priceRange: 52000,
 	types: '',
-	rating: 5,
+	rating: 1,
 	includesOutOfStock: true,
 	dataToShow: [],
 	originalData: [],
@@ -23,7 +23,7 @@ export { FilterProvider, useFilter };
 
 const reducer = (state, action) => {
 	switch (action.type) {
-		case 'GET_DATA':
+		case 'SET_DATA':
 			return {
 				...state,
 				dataToShow: action.payload,
@@ -33,11 +33,11 @@ const reducer = (state, action) => {
 		case 'CLEAR_FILTER':
 			return {
 				...state,
-				search: '',
+				search: state.search,
 				sortByPrice: '',
 				priceRange: 52000,
 				types: '',
-				rating: 5,
+				rating: 1,
 				includesOutOfStock: true,
 				dataToShow: state.originalData,
 				originalData: state.originalData,
@@ -48,13 +48,13 @@ const reducer = (state, action) => {
 				return {
 					...state,
 					sortByPrice: 'LOW_TO_HIGH',
-					dataToShow: [...state.dataToShow]?.sort((a, b) => a.offerPrice - b.offerPrice),
+					dataToShow: [...state.dataToShow].sort((a, b) => a.offerPrice - b.offerPrice),
 				};
 			} else if (action.payload === 'HIGH_TO_LOW') {
 				return {
 					...state,
 					sortByPrice: 'HIGH_TO_LOW',
-					dataToShow: state.dataToShow?.sort((a, b) => b.offerPrice - a.offerPrice),
+					dataToShow: state.dataToShow.sort((a, b) => b.offerPrice - a.offerPrice),
 				};
 			}
 		case 'PRICE_RANGE':

@@ -154,7 +154,7 @@ export const products = [
 		image2: IMAGES.XBOX2,
 		categoryName: 'Consoles',
 		brand: 'Microsoft',
-		ratings: '1',
+		ratings: '1.5',
 		price: 49990,
 		hasOffer: false,
 		offerPrice: 49990,

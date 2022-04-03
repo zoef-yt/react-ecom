@@ -34,6 +34,7 @@ const SingleProductCard = (props) => {
 			</div>
 
 			<div className='card-rating'>{props.rating}</div>
+			<div className='card-rating-2'>{props.rating}</div>
 			<div className='card-footer flex-column justify-content-center align-items-center'>
 				<h5 onClick={() => props.onClick()} className='product-heading'>
 					{props.name}

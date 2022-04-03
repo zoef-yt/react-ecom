@@ -9,7 +9,7 @@ const HomepageBody = () => {
 
 	useEffect(() => {
 		FilterDispatch({
-			type: 'GET_DATA',
+			type: 'SET_DATA',
 			payload: products.data,
 		});
 	}, [products]);
