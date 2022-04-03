@@ -23,26 +23,23 @@ export const products = [
 		offerMessage: 'Save ₹1000',
 		preOrder: false,
 		inStock: true,
-		fastDelivery: true,
 	},
 	// The Last of Us Part II for PS4
 	{
 		_id: uuid(),
-
 		id: '1',
 		name: 'The Last of Us Part II for PS4',
 		image: IMAGES.LOUS1,
 		image2: IMAGES.LOUS2,
 		categoryName: 'Games',
 		brand: 'Naughty Dog',
-		ratings: '3,8',
+		ratings: '3.8',
 		price: 4000,
 		hasOffer: true,
 		offerPrice: 2499,
 		offerMessage: 'Save ₹1501',
 		preOrder: false,
 		inStock: false,
-		fastDelivery: true,
 	},
 	// Horizon Forbidden West for PS5
 	{
@@ -61,7 +58,6 @@ export const products = [
 		offerMessage: 'PRE-ORDER NOW!',
 		preOrder: true,
 		inStock: false,
-		fastDelivery: false,
 	},
 	// Marvel Spiderman Miles Morales: Ultimate Edition for PS5
 	{
@@ -73,14 +69,13 @@ export const products = [
 		image2: IMAGES.MilesMorales2,
 		categoryName: 'Games',
 		brand: 'Sony Interactive Entertainment',
-		ratings: '4.5',
+		ratings: '4',
 		price: 4999,
 		hasOffer: true,
 		offerPrice: 4599,
 		offerMessage: 'Save ₹400',
 		preOrder: false,
 		inStock: true,
-		fastDelivery: true,
 	},
 	// Uncharted Legacy of Thieves Collection for PS5
 	{
@@ -98,7 +93,6 @@ export const products = [
 		offerMessage: 'Save ₹2000',
 		preOrder: false,
 		inStock: true,
-		fastDelivery: false,
 	},
 	// Nintendo Switch - MARIO RED & BLUE EDITION
 	{
@@ -109,14 +103,13 @@ export const products = [
 		image2: IMAGES.NintendoSwitchMario2,
 		categoryName: 'Consoles',
 		brand: 'Nintendo',
-		ratings: '4',
+		ratings: '2',
 		price: 49999,
 		hasOffer: true,
 		offerPrice: 32999,
 		offerMessage: 'Save ₹17000 on pre-order',
 		preOrder: true,
 		inStock: false,
-		fastDelivery: false,
 	},
 	// Sony PlayStation 4 1TB Console
 	{
@@ -127,14 +120,13 @@ export const products = [
 		image2: IMAGES.PS4_2,
 		categoryName: 'Consoles',
 		brand: 'Sony',
-		ratings: '4.5',
+		ratings: '3',
 		price: 49999,
 		hasOffer: true,
 		offerPrice: 29990,
 		offerMessage: 'Stock Clearance Sale',
 		preOrder: false,
 		inStock: true,
-		fastDelivery: true,
 	},
 	// PlayStation 5 Console
 	{
@@ -152,7 +144,6 @@ export const products = [
 		offerMessage: 'FEW LEFT!',
 		preOrder: false,
 		inStock: true,
-		fastDelivery: true,
 	},
 	// Microsoft Xbox Series X
 	{
@@ -163,14 +154,13 @@ export const products = [
 		image2: IMAGES.XBOX2,
 		categoryName: 'Consoles',
 		brand: 'Microsoft',
-		ratings: '4.5',
+		ratings: '1.5',
 		price: 49990,
 		hasOffer: false,
 		offerPrice: 49990,
 		offerMessage: 'Coming Soon',
 		preOrder: false,
 		inStock: false,
-		fastDelivery: false,
 	},
 	// Nintendo Joy-Con (L/R) - Neon Red/Neon Blue
 	{
@@ -179,7 +169,7 @@ export const products = [
 		name: 'Nintendo Joy-Con (L/R) - Neon Red/Neon Blue',
 		image: IMAGES.NintendoSwitchJoycon1,
 		image2: IMAGES.NintendoSwitchJoycon2,
-		categoryName: 'accessories',
+		categoryName: 'Accessories',
 		brand: 'Nintendo',
 		ratings: '4.5',
 		price: 6999,
@@ -188,7 +178,6 @@ export const products = [
 		offerMessage: 'Save ₹1000',
 		preOrder: false,
 		inStock: true,
-		fastDelivery: false,
 	},
 	// PS5 Dualsense Wireless Controller Midnight Black
 	{
@@ -197,7 +186,7 @@ export const products = [
 		name: 'PS5 Dualsense Wireless Controller Midnight Black',
 		image: IMAGES.PS5ControllerB1,
 		image2: IMAGES.PS5ControllerB2,
-		categoryName: 'accessories',
+		categoryName: 'Accessories',
 		brand: 'Sony',
 		ratings: '4.5',
 		price: 5990,
@@ -206,7 +195,6 @@ export const products = [
 		offerMessage: '10% off for new customers',
 		preOrder: false,
 		inStock: true,
-		fastDelivery: true,
 	},
 	// PS5 Dualsense Wireless Controller Cosmic Red
 	{
@@ -215,7 +203,7 @@ export const products = [
 		name: 'PS5 Dualsense Wireless Controller Cosmic Red',
 		image: IMAGES.PS5ControllerR1,
 		image2: IMAGES.PS5ControllerR2,
-		categoryName: 'accessories',
+		categoryName: 'Accessories',
 		brand: 'Sony',
 		ratings: '4.5',
 		price: 6390,
@@ -224,7 +212,6 @@ export const products = [
 		offerMessage: '3 LEFT!!!',
 		preOrder: false,
 		inStock: true,
-		fastDelivery: true,
 	},
 	// Xbox Wireless Controller – Shock Blue
 
@@ -234,7 +221,7 @@ export const products = [
 		name: 'Xbox Wireless Controller – Shock Blue',
 		image: IMAGES.XboxController1,
 		image2: IMAGES.XboxController2,
-		categoryName: 'accessories',
+		categoryName: 'Accessories',
 		brand: 'Microsoft',
 		ratings: '4.5',
 		price: 5890,
@@ -243,6 +230,5 @@ export const products = [
 		offerMessage: 'PRE-ORDER NOW!',
 		preOrder: true,
 		inStock: false,
-		fastDelivery: false,
 	},
 ];

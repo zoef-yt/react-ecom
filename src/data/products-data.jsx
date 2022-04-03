@@ -1,3 +1,3 @@
-const types = ['Consoles', 'Games', 'Accessories '];
+const types = ['Consoles', 'Games', 'Accessories'];
 
 export { types };
