@@ -45,7 +45,7 @@ const MyCartScreen = () => {
 														100
 													).toFixed()}% OFF)`}</span>
 												</p>
-												<div className='flex-row space-between btn-products qty'>
+												<div className='flex-row space-between btn-products-qty'>
 													<button
 														onClick={qty > 1 ? () => changeCartQuantity(product, -1) : () => removeFromCart(product)}
 														className='btn btn-secondary btn-quantity'

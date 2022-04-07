@@ -51,12 +51,6 @@ const Header = () => {
 					<div className='badge-holder'>
 						<div className='avatar avatar-sm '>{user.name.substring(0, 1).toUpperCase()}</div>
 						<div className='profile-modal'>
-							<li>My Profile</li>
-							<hr />
-							<li className='cart-icon'>My Cart</li>
-							<hr />
-							<li className='wishlist-icon'>My Wishlist</li>
-							<hr />
 							<li
 								onClick={() => {
 									logoutHandler();

@@ -56,7 +56,11 @@
 .product-cart-detail > * {
 	margin: 5px 0;
 }
-
+.product-cart-detail > h5 {
+	font-size: 2rem;
+	line-height: 2rem;
+	font-weight: bold;
+}
 .cartpage-content {
 	width: 100%;
 }

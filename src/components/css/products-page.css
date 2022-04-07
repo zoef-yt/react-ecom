@@ -37,7 +37,7 @@
 	display: none;
 	background-color: var(--colour-accent-second);
 	border: 1px solid var(--colour-accent-one);
-	color: var(--colour-text-white-two);
+	color: var(--both-theme-white);
 	border-radius: 0 0 1rem 1rem;
 	position: absolute;
 	min-width: 16rem;
