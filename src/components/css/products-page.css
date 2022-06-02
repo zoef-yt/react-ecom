@@ -104,6 +104,25 @@
 	height: min-content;
 }
 
+.card {
+	animation: card-in-animation 0.3s ease-in-out;
+}
+
+@keyframes card-in-animation {
+	0% {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+	90% {
+		opacity: 0.8;
+		transform: scale(1.005);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1.02);
+	}
+}
+
 .product-heading {
 	font-size: 2rem;
 	max-width: 25ch;

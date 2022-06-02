@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import '../css/products-page.css';
 import { useAuth, useModal } from '../../context/index';
 import { ShowPasswordEyeIcon, HidePasswordEyeIcon } from '../../assets/svg/svg';
-const LoginCardModal = () => {
+import './LoginCardModal.css';
+const AuthModalComponent = () => {
 	const { isLogin, isLoading, error, toggleIsLogin, signUpHandler, loginHandler, logoutHandler, errorHandler } = useAuth();
-	const { toggleModal } = useModal();
+	const { closeModal } = useModal();
 	const [showPassword, setShowPassword] = useState({ password: false, confirmPassword: false });
 	const defaultText = {
 		name: '',
@@ -82,8 +83,17 @@ const LoginCardModal = () => {
 		setShowPassword({ ...showPassword, [name]: !showPassword[name] });
 	};
 
+	const testLoginHandler = async () => {
+		setTextFields((prev) => ({
+			...prev,
+			password: testUser.password,
+			email: testUser.email,
+		}));
+		const success = await loginHandler({ email: testUser.email, password: testUser.password });
+		success ? (closeModal(), setTextFields(defaultText)) : null;
+	};
 	return (
-		<div className='modal-card'>
+		<div className='modal-card' onClick={(e) => e.stopPropagation()}>
 			<div className='flex-column align-items-center space-evenly'>
 				<h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
 				<div className='input-group'>
@@ -132,16 +142,7 @@ const LoginCardModal = () => {
 				</div>
 
 				{isLogin && (
-					<p
-						onClick={() =>
-							setTextFields({
-								...textFields,
-								password: testUser.password,
-								email: testUser.email,
-							})
-						}
-						className='btn btn-link'
-					>
+					<p onClick={!isLoading ? () => testLoginHandler() : null} className='btn btn-link'>
 						Test Login
 					</p>
 				)}
@@ -151,7 +152,7 @@ const LoginCardModal = () => {
 						isLogin
 							? async () => {
 									const success = await loginChecker();
-									success ? (toggleModal(), setTextFields(defaultText)) : null;
+									success ? (closeModal(), setTextFields(defaultText)) : null;
 							  }
 							: () => {
 									signupChecker();
@@ -177,10 +178,9 @@ const LoginCardModal = () => {
 	);
 };
 
-export { LoginCardModal };
+export { AuthModalComponent };
 
 const InputField = ({ labelText, type, name, onChange, value, hasError, onClick, passwordType }) => {
-	console.log(type);
 	return (
 		<>
 			<div className='flex-row align-items-center space-between'>

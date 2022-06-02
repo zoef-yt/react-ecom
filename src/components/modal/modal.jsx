@@ -1,17 +1,20 @@
-import React from 'react';
-import { useModal } from '../../context/modal/modal-context';
-import '../css/modal.css';
+import { AuthModalComponent } from './LoginCardModal';
 
-const Modal = ({ children, showModal }) => {
-	const { toggleModal } = useModal();
+const ModalComponent = ({ isModalOpened, closeModal, modalChildComponent }) => {
+	const setModalData = (modalChildName) => {
+		switch (modalChildName) {
+			case 'AuthModal':
+				return <AuthModalComponent />;
+			default:
+				closeModal();
+				return <></>;
+		}
+	};
 	return (
-		<>
-			<div className={`${showModal ? 'modal-opened' : 'modal-display-none'} modal`}>
-				{children}
-				<div onClick={() => toggleModal()} className={`${showModal ? 'modal-backdrop' : ''}`}></div>
-			</div>
-		</>
+		<div onClick={() => closeModal()} className={`${isModalOpened ? 'modal-opened' : 'modal-display-none'}`}>
+			{setModalData(modalChildComponent)}
+		</div>
 	);
 };
 
-export { Modal };
+export { ModalComponent };

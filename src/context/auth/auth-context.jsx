@@ -34,7 +34,6 @@ const AuthProvider = ({ children }) => {
 				return true;
 			}
 		} catch (e) {
-			console.log(e.response);
 			errorHandler(true, e.response.data.errors[0]);
 			setIsLoading(false);
 		}
@@ -55,7 +54,6 @@ const AuthProvider = ({ children }) => {
 			}
 			setIsLoading(false);
 		} catch (e) {
-			console.log(e.response);
 			errorHandler(true, e.response.data.errors[0]);
 
 			setIsLoading(false);

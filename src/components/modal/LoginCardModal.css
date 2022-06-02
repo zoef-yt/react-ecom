@@ -1,0 +1,61 @@
+.modal-card {
+	min-height: unset;
+	width: 100%;
+	max-width: 40rem;
+	margin: 0 auto;
+	border-radius: 5px;
+	max-height: 90vh;
+	overflow-x: auto;
+	padding: 1rem;
+}
+
+.input-group > * {
+	transition: all 0.3s ease-in-out;
+}
+
+.modal-error {
+	color: var(--colour-error);
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin: 0.5rem 0;
+	width: 25rem;
+	line-height: 1.5rem;
+	text-align: center;
+}
+.modal-button {
+	margin: 1rem 0;
+	width: 90%;
+	transition: all 0.3s ease-in-out;
+}
+
+.modal-btn-disabled {
+	background-color: var(--colour-text-grey);
+	color: var(--colour-error-second);
+	cursor: not-allowed;
+}
+
+.modal-opened {
+	backdrop-filter: blur(5px);
+	/* This value is not in var as this is being used only once here */
+	background-color: rgb(0 0 0 / 70%);
+}
+
+.input-group .text-field {
+	margin: 8px 0;
+	width: 30rem;
+}
+
+.modal-card .btn {
+	margin: 0.5rem 0;
+}
+
+@media screen and (max-width: 768px) {
+	.modal-card {
+		max-width: 80vw;
+	}
+
+	.input-group .text-field {
+		margin: 8px 0;
+		width: 69vw;
+	}
+}

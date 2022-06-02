@@ -9,7 +9,7 @@ import IMAGES from '../../assets/images/index';
 export const products = [
 	// 'Ghost of Tsushima Directors Cut PS5'
 	{
-		_id: uuid(),
+		_id: 'NG_01',
 		id: '0',
 		name: 'Ghost of Tsushima Directors Cut PS5',
 		image: IMAGES.GOT1,
@@ -26,7 +26,7 @@ export const products = [
 	},
 	// The Last of Us Part II for PS4
 	{
-		_id: uuid(),
+		_id: 'NG_02',
 		id: '1',
 		name: 'The Last of Us Part II for PS4',
 		image: IMAGES.LOUS1,
@@ -43,7 +43,7 @@ export const products = [
 	},
 	// Horizon Forbidden West for PS5
 	{
-		_id: uuid(),
+		_id: 'NG_03',
 
 		id: '2',
 		name: 'Horizon Forbidden West for PS5',
@@ -61,7 +61,7 @@ export const products = [
 	},
 	// Marvel Spiderman Miles Morales: Ultimate Edition for PS5
 	{
-		_id: uuid(),
+		_id: 'NG_04',
 
 		id: '3',
 		name: 'Marvel Spiderman Miles Morales: Ultimate Edition for PS5',
@@ -79,7 +79,7 @@ export const products = [
 	},
 	// Uncharted Legacy of Thieves Collection for PS5
 	{
-		_id: uuid(),
+		_id: 'NG_05',
 		id: '4',
 		name: 'Uncharted Legacy of Thieves Collection for PS5',
 		image: IMAGES.Uncharted1,
@@ -96,7 +96,7 @@ export const products = [
 	},
 	// Nintendo Switch - MARIO RED & BLUE EDITION
 	{
-		_id: uuid(),
+		_id: 'NG_06',
 		id: '5',
 		name: 'Nintendo Switch - MARIO RED & BLUE EDITION',
 		image: IMAGES.NintendoSwitchMario1,
@@ -113,7 +113,7 @@ export const products = [
 	},
 	// Sony PlayStation 4 1TB Console
 	{
-		_id: uuid(),
+		_id: 'NG_07',
 		id: '6',
 		name: 'Sony PlayStation 4 1TB Console',
 		image: IMAGES.PS4_1,
@@ -130,7 +130,7 @@ export const products = [
 	},
 	// PlayStation 5 Console
 	{
-		_id: uuid(),
+		_id: 'NG_08',
 		id: '7',
 		name: 'PlayStation 5 Console',
 		image: IMAGES.PS5_1,
@@ -147,7 +147,7 @@ export const products = [
 	},
 	// Microsoft Xbox Series X
 	{
-		_id: uuid(),
+		_id: 'NG_09',
 		id: '8',
 		name: 'Microsoft Xbox Series X',
 		image: IMAGES.XBOX1,
@@ -164,7 +164,7 @@ export const products = [
 	},
 	// Nintendo Joy-Con (L/R) - Neon Red/Neon Blue
 	{
-		_id: uuid(),
+		_id: 'NG_10',
 		id: '9',
 		name: 'Nintendo Joy-Con (L/R) - Neon Red/Neon Blue',
 		image: IMAGES.NintendoSwitchJoycon1,
@@ -181,7 +181,7 @@ export const products = [
 	},
 	// PS5 Dualsense Wireless Controller Midnight Black
 	{
-		_id: uuid(),
+		_id: 'NG_11',
 		id: '10',
 		name: 'PS5 Dualsense Wireless Controller Midnight Black',
 		image: IMAGES.PS5ControllerB1,
@@ -198,7 +198,7 @@ export const products = [
 	},
 	// PS5 Dualsense Wireless Controller Cosmic Red
 	{
-		_id: uuid(),
+		_id: 'NG_12',
 		id: '11',
 		name: 'PS5 Dualsense Wireless Controller Cosmic Red',
 		image: IMAGES.PS5ControllerR1,
@@ -216,7 +216,7 @@ export const products = [
 	// Xbox Wireless Controller – Shock Blue
 
 	{
-		_id: uuid(),
+		_id: 'NG_13',
 		id: '12',
 		name: 'Xbox Wireless Controller – Shock Blue',
 		image: IMAGES.XboxController1,

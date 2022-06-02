@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShoppingCartIcon, HeartIcon, SunIcon, HalfMoonIcon } from '../../assets/svg/svg';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import '../css/header.css';
 import { useModal, useAuth, useMyCart, useWishlist, useTheme, useFilter } from '../../context/index';
 const Header = () => {
@@ -8,10 +8,10 @@ const Header = () => {
 	const { wishlist, emptyWishlist } = useWishlist();
 	const { myCart, emptyCart } = useMyCart();
 	const totalCartQuantity = myCart.reduce((acc, prd) => acc + prd.qty, 0);
-	const { toggleModal } = useModal();
+	const { openModal } = useModal();
 	const { isLogin, user, logoutHandler } = useAuth();
 	const { FilterDispatch } = useFilter();
-
+	const navigate = useNavigate();
 	return (
 		<nav className='homepage-navbar'>
 			<div className='navbar-brand'>
@@ -53,6 +53,13 @@ const Header = () => {
 						<div className='profile-modal'>
 							<li
 								onClick={() => {
+									navigate('/orders');
+								}}
+							>
+								My orders 😞
+							</li>
+							<li
+								onClick={() => {
 									logoutHandler();
 									emptyCart();
 									emptyWishlist();
@@ -63,7 +70,7 @@ const Header = () => {
 						</div>
 					</div>
 				) : (
-					<button onClick={() => toggleModal()} className='btn btn-link'>
+					<button onClick={() => openModal('AuthModal')} className='btn btn-link'>
 						Hello, {isLogin ? 'Login' : 'Sign Up'}
 					</button>
 				)}
