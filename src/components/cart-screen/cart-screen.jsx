@@ -21,7 +21,6 @@ const MyCartScreen = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, [pathname]);
-	// useTitle('My Cart');
 	const [isCheckingOut, setIsCheckingOut] = useState(false);
 
 	isCheckingOut ? useTitle('Checkout') : useTitle('My Cart');
