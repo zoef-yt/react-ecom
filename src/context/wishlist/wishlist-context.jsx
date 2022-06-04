@@ -27,13 +27,6 @@ const WishlistProvider = ({ children }) => {
 						authorization: localStorage.getItem('token'),
 					},
 			  });
-
-		//! COMMENTED OUT TO TEST
-
-		// setWishlist((prevList) => {
-		// 	const index = prevList.findIndex((p) => p._id === product._id);
-		// 	return index === -1 ? [...prevList, product, product] : prevList.filter((p) => p._id !== product._id);
-		// });
 	};
 
 	useEffect(() => {

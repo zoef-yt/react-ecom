@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/cart-screen.css';
 import { Header, Footer, FeaturedCardGenerator } from '../allComponent';
 import { PlusIcon, MinusIcon, TrashIcon } from '../../assets/svg/svg';
-import { useWishlist, useMyCart, useProductsData } from '../../context/index.js';
-import { useLocation } from 'react-router-dom';
+import { useWishlist, useMyCart, useProductsData, useAuth, useOrders } from '../../context/index.js';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useTitle } from '../../custom-hooks/useTitle';
 
 const MyCartScreen = () => {
 	const { featuredProducts } = useProductsData();
+	const { user } = useAuth();
 	const { myCart, removeFromCart, changeCartQuantity } = useMyCart();
 	const { toggleWishlist, wishlist } = useWishlist();
 	const pricingStructure = {
@@ -19,6 +21,10 @@ const MyCartScreen = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, [pathname]);
+	const [isCheckingOut, setIsCheckingOut] = useState(false);
+
+	isCheckingOut ? useTitle('Checkout') : useTitle('My Cart');
+
 	return (
 		<div className='cartpage-homepage'>
 			<Header />
@@ -26,7 +32,16 @@ const MyCartScreen = () => {
 				<h1>My Cart{myCart.length >= 1 ? `(${myCart.length})` : ''}</h1>
 				<div className='cartpage-content flex-row space-evenly'>
 					<div className='cartpage-products'>
-						{myCart && myCart.length > 0 ? (
+						{isCheckingOut ? (
+							<>
+								<div className='card card-xl space-around'>
+									<h1 className='text-align-center'> Address</h1>
+									<h3>Name: {user.name}</h3>
+									<h3>Address: No.1, Street, City, State, Country</h3>
+									<h3>Phone: 1234567890</h3>
+								</div>
+							</>
+						) : myCart && myCart.length > 0 ? (
 							myCart.map((product) => {
 								const isWishListed = wishlist.findIndex((item) => item._id === product._id) === -1 ? false : true;
 
@@ -115,8 +130,30 @@ const MyCartScreen = () => {
 									).toLocaleString()}
 								</h4>
 							</div>
-
-							<button className='btn btn-primary'>Place Order</button>
+							{isCheckingOut ? (
+								<>
+									<PlaceOrderButton
+										totalPrice={pricingStructure.OGPricing + pricingStructure.deliveryPrice - pricingStructure.discountedPrice}
+									/>
+									<button
+										onClick={() => {
+											setIsCheckingOut(false);
+										}}
+										className='btn btn-outline-danger'
+									>
+										Cancel
+									</button>
+								</>
+							) : (
+								<button
+									onClick={() => {
+										setIsCheckingOut(true);
+									}}
+									className='btn btn-primary'
+								>
+									Place Order
+								</button>
+							)}
 						</div>
 					) : (
 						<></>
@@ -138,3 +175,63 @@ const MyCartScreen = () => {
 };
 
 export { MyCartScreen };
+const PlaceOrderButton = ({ totalPrice }) => {
+	const { addToOrders } = useOrders();
+	const { myCart, emptyCart } = useMyCart();
+	const { user } = useAuth();
+	const navigate = useNavigate();
+	const loadScript = (src) => {
+		return new Promise((resolve) => {
+			const script = document.createElement('script');
+			script.src = src;
+			script.onload = () => {
+				resolve(true);
+			};
+			script.onerror = () => {
+				resolve(false);
+			};
+			document.body.appendChild(script);
+		});
+	};
+
+	const paymentHandler = async (totalAmount) => {
+		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js');
+		if (!res) {
+			alert('Razorpay SDK failed to load. Are you online?');
+			return;
+		}
+		const options = {
+			key: process.env.REACT_APP_RAZOR_KEY_ID,
+			currency: 'INR',
+			amount: totalAmount * 100,
+			name: 'Need Games',
+			description: 'Thank you for shopping with Need Games',
+			handler: async function (response) {
+				if (!!response.razorpay_payment_id) {
+					addToOrders({ myCart, paymentId: response.razorpay_payment_id, totalAmount: totalAmount });
+					emptyCart();
+					navigate('/orders');
+				}
+			},
+			prefill: {
+				name: user.name ?? 'New user',
+				email: user.email ?? 'example@gmail.com',
+				contact: '1234567899',
+			},
+		};
+
+		const paymentObject = new window.Razorpay(options);
+		paymentObject.open();
+	};
+
+	return (
+		<button
+			onClick={async () => {
+				const result = await paymentHandler(totalPrice);
+			}}
+			className='btn btn-primary'
+		>
+			Checkout
+		</button>
+	);
+};

@@ -5,11 +5,12 @@ import { FeaturedCardGenerator, Header, Footer } from '../allComponent.jsx';
 import { useWishlist } from '../../context/wishlist/wishlist-context';
 import { MinusIcon, PlusIcon, SecondHeartIcon, TrashIcon } from '../../assets/svg/svg';
 import { useMyCart } from '../../context/mycart/mycart-context';
+import { useTitle } from '../../custom-hooks/useTitle';
 
 const WishListPage = () => {
+	useTitle('Wishlist');
 	const { featuredProducts } = useProductsData();
 	const { wishlist } = useWishlist();
-	// const { response: responseWishlist, error: errorWishlist, loading: loadingWishlist, operation: fetchWishlist } = useAxios();
 	return (
 		<div className='wishlist-homepage'>
 			<Header />

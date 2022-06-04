@@ -76,10 +76,6 @@ const ProductsPageBody = () => {
 								hasOffer={hasOffer}
 								inStock={inStock}
 								rating={ratings}
-								onClick={() => {
-									// console.log is for testing purposes for future implementation of
-									console.log('This product is : ', _id);
-								}}
 							/>
 						);
 					})}
